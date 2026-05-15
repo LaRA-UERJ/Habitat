@@ -26,6 +26,8 @@ See [docs/concepts.md](docs/concepts.md) for a full catalog of philosophies pres
 |---|---|---|
 | [Soldering Bench](designs/soldering-bench/) | Mobile standing bench for PCB soldering with pegboard, soldering iron, hot air, casters | Brief phase |
 | [Workstation 120°](designs/workstation-120/) | Standing computer station with pegboard-mounted monitor, whiteboard, 120° angle, casters | Brief phase |
+| [Partition 120°](designs/partition-120/) | Mobile 3-panel folding partition, steel frame, upholstered panels, acoustic + visual privacy, casters | Brief phase |
+| [Focus Pod](designs/focus-pod/) | Mobile semi-enclosed microenvironment for deep focus, calls, and silent work, with retractable L-desk, lounge chair, acoustic panels, casters | Brief phase |
 
 ## Design Principles Catalog
 

@@ -72,6 +72,8 @@ Different tasks have different optimal heights:
 
 **Counterargument:** Adjustable-height mechanisms (linear actuators) add cost and complexity.
 
+**Practical data:** See [ergonomics.md](ergonomics.md) for anthropometric data (Brazilian population), ideal desk heights, and elbow angle tolerances. See [adjustable-height-mechanisms.md](adjustable-height-mechanisms.md) for telescoping tube combinations and DIY locking mechanisms.
+
 ---
 
 ## Vertical Surfaces
