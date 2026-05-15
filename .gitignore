@@ -1,0 +1,11 @@
+*.FCStd1
+*.stl
+*.obj
+*.3mf
+*.gcode
+*.nc
+.DS_Store
+Thumbs.db
+*.bak
+*.swp
+*~
