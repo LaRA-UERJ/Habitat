@@ -1,0 +1,235 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 960" font-family="monospace" font-size="11">
+  <defs>
+    <style>
+      .wall { fill: none; stroke: #333; stroke-width: 4; }
+      .window { fill: #cce5ff; stroke: #4a90d9; stroke-width: 3; }
+      .door { fill: #fff; stroke: #333; stroke-width: 2; }
+      .door-swing { fill: none; stroke: #999; stroke-width: 1; stroke-dasharray: 4,3; }
+      .zone-elec { fill: #e8f5e9; stroke: #4caf50; stroke-width: 1.5; rx: 4; }
+      .zone-cad { fill: #e3f2fd; stroke: #2196f3; stroke-width: 1.5; rx: 4; }
+      .zone-cnc { fill: #fff3e0; stroke: #ff9800; stroke-width: 1.5; rx: 4; }
+      .zone-arena { fill: #fce4ec; stroke: #e91e63; stroke-width: 2; rx: 4; }
+      .zone-board { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 1.5; rx: 4; }
+      .bench { fill: #fff; stroke: #666; stroke-width: 1; }
+      .label { font-weight: bold; font-size: 12; fill: #333; }
+      .sublabel { font-size: 9; fill: #666; }
+      .dim { font-size: 9; fill: #888; }
+      .arrow-flow { fill: none; stroke-width: 2; stroke-linecap: round; }
+      .flow-clean { stroke: #4caf50; }
+      .flow-service { stroke: #ff9800; }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="430" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">LaRA Lab — Floor Plan Option</text>
+  <text x="430" y="42" text-anchor="middle" font-size="10" fill="#888">7m × 7m (49m²) · Scale: ~1m = 100px · NOT FINAL</text>
+
+  <!-- Room outline offset for margins -->
+  <g transform="translate(60, 60)">
+    <!-- Room: 700×700 = 7×7m -->
+
+    <!-- NORTH WALL — WINDOW (full wall) -->
+    <rect x="0" y="0" width="700" height="12" class="window"/>
+    <text x="350" y="-8" text-anchor="middle" class="dim">NORTH — WINDOW (full wall)</text>
+    <!-- Window panes -->
+    <line x1="140" y1="0" x2="140" y2="12" stroke="#4a90d9" stroke-width="1"/>
+    <line x1="280" y1="0" x2="280" y2="12" stroke="#4a90d9" stroke-width="1"/>
+    <line x1="420" y1="0" x2="420" y2="12" stroke="#4a90d9" stroke-width="1"/>
+    <line x1="560" y1="0" x2="560" y2="12" stroke="#4a90d9" stroke-width="1"/>
+
+    <!-- EAST WALL -->
+    <line x1="700" y1="0" x2="700" y2="700" class="wall"/>
+    <text x="720" y="350" text-anchor="middle" class="dim" transform="rotate(90, 720, 350)">EAST</text>
+
+    <!-- WEST WALL -->
+    <line x1="0" y1="0" x2="0" y2="700" class="wall"/>
+    <text x="-20" y="350" text-anchor="middle" class="dim" transform="rotate(-90, -20, 350)">WEST</text>
+
+    <!-- SOUTH WALL — with 2 doors -->
+    <!-- Left section of south wall -->
+    <line x1="0" y1="700" x2="80" y2="700" class="wall"/>
+    <!-- LEFT DOOR (southwest) -->
+    <rect x="80" y="690" width="80" height="20" class="door"/>
+    <path d="M 80,700 A 80,80 0 0,1 160,700" class="door-swing"/>
+    <text x="120" y="730" text-anchor="middle" class="dim">← Service</text>
+    <!-- Middle section of south wall -->
+    <line x1="160" y1="700" x2="540" y2="700" class="wall"/>
+    <!-- RIGHT DOOR (southeast) -->
+    <rect x="540" y="690" width="80" height="20" class="door"/>
+    <path d="M 620,700 A 80,80 0 0,0 540,700" class="door-swing"/>
+    <text x="580" y="730" text-anchor="middle" class="dim">Clean →</text>
+    <!-- Right section of south wall -->
+    <line x1="620" y1="700" x2="700" y2="700" class="wall"/>
+    <text x="350" y="748" text-anchor="middle" class="dim">SOUTH</text>
+
+    <!-- ===================== ZONES ===================== -->
+
+    <!-- ZONE: Electronics Bay (V/120°) — North, near window -->
+    <rect x="180" y="30" width="340" height="250" class="zone-elec"/>
+    <text x="350" y="55" text-anchor="middle" class="label" fill="#2e7d32">ELECTRONICS BAY (V, 120°)</text>
+    <text x="350" y="70" text-anchor="middle" class="sublabel">Soldering · Debug · Prototyping</text>
+
+    <!-- 3 benches in V formation (simplified) -->
+    <!-- Left bench -->
+    <rect x="200" y="90" width="120" height="50" class="bench" transform="rotate(-15, 260, 115)"/>
+    <text x="260" y="118" text-anchor="middle" class="sublabel">Bench 1</text>
+    <!-- Center bench -->
+    <rect x="290" y="130" width="120" height="50" class="bench"/>
+    <text x="350" y="158" text-anchor="middle" class="sublabel">Bench 2</text>
+    <!-- Right bench -->
+    <rect x="380" y="90" width="120" height="50" class="bench" transform="rotate(15, 440, 115)"/>
+    <text x="440" y="118" text-anchor="middle" class="sublabel">Bench 3</text>
+
+    <!-- Small tool panels between benches -->
+    <rect x="326" y="100" width="48" height="30" fill="#e8f5e9" stroke="#66bb6a" stroke-width="1"/>
+    <text x="350" y="108" text-anchor="middle" class="dim">pegboard</text>
+    <rect x="240" y="140" width="40" height="24" fill="#e8f5e9" stroke="#66bb6a" stroke-width="1"/>
+    <rect x="420" y="140" width="40" height="24" fill="#e8f5e9" stroke="#66bb6a" stroke-width="1"/>
+
+    <!-- Equipment labels -->
+    <text x="260" y="210" text-anchor="middle" class="sublabel">scope + source + ESD</text>
+    <text x="440" y="210" text-anchor="middle" class="sublabel">scope + source + ESD</text>
+    <text x="350" y="230" text-anchor="middle" class="sublabel">rework station shared</text>
+
+    <!-- 120° angle indicator -->
+    <path d="M 280,250 L 350,230 L 420,250" fill="none" stroke="#4caf50" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <text x="350" y="268" text-anchor="middle" class="dim">~120° between benches</text>
+
+    <!-- ZONE: CAD Stations — East wall -->
+    <rect x="580" y="30" width="110" height="480" class="zone-cad"/>
+    <text x="635" y="55" text-anchor="middle" class="label" fill="#1565c0">CAD (×4)</text>
+    <text x="635" y="70" text-anchor="middle" class="sublabel">Programming · Design · Docs</text>
+
+    <!-- 4 desk outlines -->
+    <rect x="590" y="90" width="90" height="50" class="bench"/>
+    <text x="635" y="118" text-anchor="middle" class="sublabel">CAD 1</text>
+    <rect x="590" y="180" width="90" height="50" class="bench"/>
+    <text x="635" y="208" text-anchor="middle" class="sublabel">CAD 2</text>
+    <rect x="590" y="270" width="90" height="50" class="bench"/>
+    <text x="635" y="298" text-anchor="middle" class="sublabel">CAD 3</text>
+    <rect x="590" y="360" width="90" height="50" class="bench"/>
+    <text x="635" y="388" text-anchor="middle" class="sublabel">CAD 4</text>
+
+    <!-- Monitor indicators (small rect on each desk) -->
+    <rect x="620" y="95" width="30" height="5" fill="#90caf9"/>
+    <rect x="620" y="185" width="30" height="5" fill="#90caf9"/>
+    <rect x="620" y="275" width="30" height="5" fill="#90caf9"/>
+    <rect x="620" y="365" width="30" height="5" fill="#90caf9"/>
+
+    <!-- Pegboard above each station -->
+    <text x="635" y="148" text-anchor="middle" class="dim">↑ pegboard</text>
+    <text x="635" y="238" text-anchor="middle" class="dim">↑ pegboard</text>
+    <text x="635" y="328" text-anchor="middle" class="dim">↑ pegboard</text>
+    <text x="635" y="418" text-anchor="middle" class="dim">↑ pegboard</text>
+
+    <!-- ZONE: CNC + Heavy Bench — Southwest corner -->
+    <rect x="10" y="440" width="220" height="250" class="zone-cnc"/>
+    <text x="120" y="465" text-anchor="middle" class="label" fill="#e65100">CNC + MECHANICAL</text>
+    <text x="120" y="480" text-anchor="middle" class="sublabel">Machining · Drilling · Assembly</text>
+
+    <!-- CNC machine -->
+    <rect x="20" y="500" width="90" height="80" fill="#fff8e1" stroke="#f57c00" stroke-width="1.5"/>
+    <text x="65" y="540" text-anchor="middle" class="sublabel">CNC</text>
+    <text x="65" y="555" text-anchor="middle" class="dim">machine</text>
+
+    <!-- Heavy bench -->
+    <rect x="20" y="600" width="90" height="60" fill="#fff8e1" stroke="#f57c00" stroke-width="1.5"/>
+    <text x="65" y="635" text-anchor="middle" class="sublabel">Heavy bench</text>
+    <text x="65" y="648" text-anchor="middle" class="dim">vise + drill</text>
+
+    <!-- Shadow board on wall -->
+    <rect x="130" y="500" width="80" height="80" fill="#fff8e1" stroke="#f57c00" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="170" y="545" text-anchor="middle" class="dim">shadow</text>
+    <text x="170" y="558" text-anchor="middle" class="dim">board</text>
+
+    <!-- Exhaust note -->
+    <text x="120" y="685" text-anchor="middle" class="dim">⚠ exhaust near wall</text>
+
+    <!-- ZONE: Whiteboard / Kanban — South wall center -->
+    <rect x="200" y="630" width="280" height="60" class="zone-board"/>
+    <text x="340" y="655" text-anchor="middle" class="label" fill="#7b1fa2">WHITEBOARD + KANBAN</text>
+    <text x="340" y="670" text-anchor="middle" class="sublabel">Project status · Planning · Discussion</text>
+
+    <!-- Backpack hooks near doors -->
+    <text x="120" y="670" text-anchor="middle" class="dim">🪝 hooks</text>
+    <text x="580" y="670" text-anchor="middle" class="dim">🪝 hooks</text>
+
+    <!-- ZONE: Robot Test Table — Center -->
+    <rect x="250" y="320" width="200" height="200" class="zone-arena"/>
+    <text x="350" y="365" text-anchor="middle" class="label" fill="#c2185b">ROBOT ARENA</text>
+    <text x="350" y="382" text-anchor="middle" class="sublabel">2m × 2m test table</text>
+    <text x="350" y="400" text-anchor="middle" class="dim">Demos · Testing · Large assembly</text>
+
+    <!-- Table legs -->
+    <rect x="265" y="335" width="10" height="10" fill="#f8bbd0" stroke="#e91e63" stroke-width="1"/>
+    <rect x="425" y="335" width="10" height="10" fill="#f8bbd0" stroke="#e91e63" stroke-width="1"/>
+    <rect x="265" y="495" width="10" height="10" fill="#f8bbd0" stroke="#e91e63" stroke-width="1"/>
+    <rect x="425" y="495" width="10" height="10" fill="#f8bbd0" stroke="#e91e63" stroke-width="1"/>
+
+    <!-- Circulation space indicators -->
+    <text x="350" y="450" text-anchor="middle" class="dim">~1m circulation</text>
+    <text x="350" y="465" text-anchor="middle" class="dim">around table</text>
+
+    <!-- ===================== FLOW ARROWS ===================== -->
+
+    <!-- Clean flow (right door → CAD → electronics) -->
+    <path d="M 580,680 L 580,530 L 560,530" class="arrow-flow flow-clean" marker-end="url(#arrowGreen)"/>
+    <path d="M 560,430 L 540,430 L 540,300 L 520,280" class="arrow-flow flow-clean" marker-end="url(#arrowGreen)"/>
+
+    <!-- Service flow (left door → CNC) -->
+    <path d="M 120,680 L 120,650 L 120,450" class="arrow-flow flow-service" marker-end="url(#arrowOrange)"/>
+
+    <!-- Arrow markers -->
+    <defs>
+      <marker id="arrowGreen" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-auto">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#4caf50"/>
+      </marker>
+      <marker id="arrowOrange" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-auto">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff9800"/>
+      </marker>
+    </defs>
+
+    <!-- ===================== DIMENSIONS ===================== -->
+
+    <!-- Top dimension (7m) -->
+    <line x1="0" y1="-25" x2="700" y2="-25" stroke="#aaa" stroke-width="1"/>
+    <line x1="0" y1="-30" x2="0" y2="-20" stroke="#aaa" stroke-width="1"/>
+    <line x1="700" y1="-30" x2="700" y2="-20" stroke="#aaa" stroke-width="1"/>
+    <text x="350" y="-30" text-anchor="middle" class="dim">7.0 m</text>
+
+    <!-- Left dimension (7m) -->
+    <line x1="-25" y1="0" x2="-25" y2="700" stroke="#aaa" stroke-width="1"/>
+    <line x1="-30" y1="0" x2="-20" y2="0" stroke="#aaa" stroke-width="1"/>
+    <line x1="-30" y1="700" x2="-20" y2="700" stroke="#aaa" stroke-width="1"/>
+    <text x="-35" y="350" text-anchor="middle" class="dim" transform="rotate(-90, -35, 350)">7.0 m</text>
+
+    <!-- ===================== NOISE GRADIENT INDICATOR ===================== -->
+    <g transform="translate(200, 520)">
+      <text x="0" y="0" class="dim">Noise gradient:</text>
+      <rect x="85" y="-10" width="30" height="12" fill="#e8f5e9" stroke="#4caf50" stroke-width="0.5"/>
+      <text x="100" y="0" text-anchor="middle" class="dim">quiet</text>
+      <rect x="120" y="-10" width="30" height="12" fill="#e3f2fd" stroke="#2196f3" stroke-width="0.5"/>
+      <text x="135" y="0" text-anchor="middle" class="dim">low</text>
+      <rect x="155" y="-10" width="30" height="12" fill="#fff3e0" stroke="#ff9800" stroke-width="0.5"/>
+      <text x="170" y="0" text-anchor="middle" class="dim">high</text>
+    </g>
+
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(60, 840)">
+    <text x="0" y="0" font-size="11" font-weight="bold" fill="#333">Legend:</text>
+    <rect x="0" y="10" width="20" height="12" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
+    <text x="25" y="20" class="sublabel">Electronics (low noise)</text>
+    <rect x="150" y="10" width="20" height="12" fill="#e3f2fd" stroke="#2196f3" stroke-width="1"/>
+    <text x="175" y="20" class="sublabel">CAD (low noise)</text>
+    <rect x="280" y="10" width="20" height="12" fill="#fff3e0" stroke="#ff9800" stroke-width="1"/>
+    <text x="305" y="20" class="sublabel">CNC/Mechanical (high noise)</text>
+    <rect x="480" y="10" width="20" height="12" fill="#fce4ec" stroke="#e91e63" stroke-width="1"/>
+    <text x="505" y="20" class="sublabel">Robot arena (variable)</text>
+    <rect x="640" y="10" width="20" height="12" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1"/>
+    <text x="665" y="20" class="sublabel">Planning</text>
+  </g>
+
+  <text x="430" y="900" text-anchor="middle" font-size="9" fill="#aaa">NOT FINAL — layout option for evaluation · LaRA-UERJ/Habitat</text>
+</svg>
