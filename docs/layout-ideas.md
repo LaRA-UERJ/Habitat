@@ -73,6 +73,46 @@ Divide the lab into named zones by activity, not by equipment. Zones: "Focus" (C
 **Pros:** Clear purpose for each area. Easy to explain to new students.
 **Cons:** Zones may conflict when multiple activities need the same space.
 
+### Option E: Hexagonal Focus Bay
+
+Six Habitat modules arranged in a hexagon, forming a semi-enclosed collective focus environment. Each module's edges are cut at 60° so that adjacent modules meet at 120° — the project's core angle.
+
+**Composition (hybrid):**
+
+| Side | Module | Facing | Function |
+|---|---|---|---|
+| 1 | Workstation 120° | Inward | Individual CAD/programming station |
+| 2 | Workstation 120° | Inward | Individual CAD/programming station |
+| 3 | Workstation 120° (or Partition) | Inward / closure | Station or acoustic panel |
+| 4 | Partition 120° | Inward | Acoustic + visual closure |
+| 5 | Partition 120° | Inward | Acoustic + visual closure |
+| 6 | Open (entrance) | — | No module, or low partition / Break Pod |
+
+**Geometry:**
+- Internal angle: 120° at each vertex
+- Estimated internal diameter: ~2.5–3m (depends on module width)
+- Module edge cut angle: 60° (half of 120° vertex)
+- Footprint: ~7–9m² (fits within the 49m² lab)
+
+**Properties:**
+- Creates a shared focus zone without walls or construction
+- Each person has their own station but shares the enclosed environment
+- Fully reconfigurable — disassemble into individual modules and rearrange in minutes
+- Complementary to the Focus Pod (individual) — this is the collective equivalent
+- Naturally absorbs the 120° angle of each module — no custom joints or adapters
+
+**Pros:** Applies 120° principle at room scale. Modular — assemble and disassemble as needed. Creates strong collective focus without construction.
+**Cons:** Requires 6 modules minimum. Occupies significant floor area. Module edges need specific cut angles for clean joints. Cable management for workstations inside the bay needs a solution.
+
+**Implications for module design:**
+- Modules need clean edges at 60° cuts on the joining sides
+- Consistent frame height at the joint line for alignment
+- No protruding elements (handles, casters) at joint edges
+- Optional mechanical connection (clips, magnets, brackets) between modules
+
+**Pentagon alternative (5 modules, 108°):**
+Fewer modules needed, but 108° doesn't align with the 120° principle. Would require module edges cut at 54° — a different geometry. Explored as a concept but hexagon is the primary direction. See reference images in the main README.
+
 ---
 
 ## Lessons from History
