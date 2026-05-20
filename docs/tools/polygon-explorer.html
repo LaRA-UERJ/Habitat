@@ -32,6 +32,13 @@ select{padding:7px 10px;background:#1a1a1a;border:1px solid #2a2a2a;border-radiu
 .cw{flex:1;display:flex;align-items:center;justify-content:center}
 #svg{width:100%;height:100%}
 .sep{border:none;border-top:1px solid #1e1e1e;margin:4px 0}
+.grp-hdr{display:flex;align-items:center;gap:6px}
+.grp-hdr label{flex:1}
+.info-btn{width:18px;height:18px;border-radius:50%;background:#1a1a1a;border:1px solid #333;color:#555;font-size:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;position:relative}
+.info-btn:hover,.info-btn.active{border-color:#6bb;color:#6bb}
+.info-tip{display:none;position:absolute;left:0;bottom:calc(100% + 8px);width:280px;padding:10px 12px;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:6px;font-size:10px;font-weight:400;color:#888;line-height:1.5;z-index:10;text-transform:none;letter-spacing:0;box-shadow:0 4px 12px rgba(0,0,0,.4)}
+.info-tip::after{content:'';position:absolute;top:100%;left:12px;border:5px solid transparent;border-top-color:#2a2a2a}
+.info-btn:hover .info-tip,.info-btn.active .info-tip{display:block}
 </style>
 </head>
 <body>
@@ -58,8 +65,18 @@ select{padding:7px 10px;background:#1a1a1a;border:1px solid #2a2a2a;border-radiu
     <input type="range" id="rD" min="0" max="1.5" step="0.05" value="0.5">
   </div>
   <div class="grp">
-    <label>Abertura entre módulos <span class="v" id="vG">0.00 m</span></label>
+    <label>Afastamento dos módulos <span class="v" id="vG">0.00 m</span></label>
     <input type="range" id="rG" min="0" max="1" step="0.05" value="0">
+  </div>
+  <div class="grp">
+    <div class="grp-hdr">
+      <label style="flex:1">Dimensões da pessoa</label>
+      <div class="info-btn" tabindex="0">i<div class="info-tip">Modelo simplificado da pessoa sentada visto de cima. A <b>elipse</b> representa o corpo (ombros x costas-até-barriga). O <b>círculo</b> interno representa a cabeça (voltada para a bancada). Ajuste para testar que tamanhos de pessoa cabem no espaço livre.</div></div>
+    </div>
+    <label>Largura dos ombros <span class="v" id="vSh">0.45 m</span></label>
+    <input type="range" id="rSh" min="0.30" max="0.80" step="0.01" value="0.45">
+    <label>Costas → barriga <span class="v" id="vTd">0.30 m</span></label>
+    <input type="range" id="rTd" min="0.20" max="0.50" step="0.01" value="0.30">
   </div>
   <div class="grp">
     <label>Tipo de cada lado (clique p/ alternar)</label>
@@ -69,17 +86,18 @@ select{padding:7px 10px;background:#1a1a1a;border:1px solid #2a2a2a;border-radiu
     <div class="li"><div class="ls" style="background:rgba(68,170,153,.6)"></div>Workstation (bancada)</div>
     <div class="li"><div class="ls" style="background:rgba(184,136,0,.6)"></div>Partition (fechamento)</div>
     <div class="li"><div class="ls" style="background:rgba(80,80,80,.4)"></div>Abertura / entrada</div>
-    <div class="li"><div class="ls" style="background:rgba(255,255,255,.25)"></div>Pessoa sentada (top view)</div>
+    <div class="li"><svg width="16" height="12" viewBox="0 0 16 12"><ellipse cx="8" cy="7" rx="6" ry="3.5" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.3)" stroke-width=".8"/><circle cx="8" cy="3" r="2" fill="rgba(255,255,255,.3)"/></svg>Pessoa sentada (vista de cima)</div>
+    <div class="li"><svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="rgba(68,170,153,.05)" stroke="rgba(68,170,153,.25)" stroke-width=".5" stroke-dasharray="2,2"/></svg>Espaço livre interno</div>
   </div>
   <div class="metrics" id="met"></div>
 </div>
 <div class="cw"><svg id="svg" xmlns="http://www.w3.org/2000/svg"></svg></div>
 <script>
-const TYPES=['ws','pt','op'],TL={ws:'W',pt:'P',op:'\u2014'};
+const TYPES=['ws','pt','op'];
 let ST=[];
 const $=id=>document.getElementById(id);
-const el={svg:$('svg'),selN:$('selN'),rS:$('rS'),rD:$('rD'),rG:$('rG'),vS:$('vS'),vD:$('vD'),vG:$('vG'),sCfg:$('sCfg'),met:$('met')};
-function P(){return{n:+el.selN.value,s:+el.rS.value,d:+el.rD.value,g:+el.rG.value}}
+const el={svg:$('svg'),selN:$('selN'),rS:$('rS'),rD:$('rD'),rG:$('rG'),rSh:$('rSh'),rTd:$('rTd'),vS:$('vS'),vD:$('vD'),vG:$('vG'),vSh:$('vSh'),vTd:$('vTd'),sCfg:$('sCfg'),met:$('met')};
+function P(){return{n:+el.selN.value,s:+el.rS.value,d:+el.rD.value,g:+el.rG.value,sh:+el.rSh.value,td:+el.rTd.value}}
 function geo(n,s){const R=s/(2*Math.sin(Math.PI/n)),a=s/(2*Math.tan(Math.PI/n));return{R,a,area:n*s*a/2,ang:(n-2)*180/n}}
 
 function initST(){
@@ -103,26 +121,29 @@ function renderBtns(){
   });
 }
 
+function rot(x,y,a){return{x:x*Math.cos(a)-y*Math.sin(a),y:x*Math.sin(a)+y*Math.cos(a)}}
+
 function draw(){
-  const{n,s,d,g}=P(),G=geo(n,s);
+  const{n,s,d,g,sh,td}=P(),G=geo(n,s);
   el.vS.textContent=s.toFixed(2)+' m';
   el.vD.textContent=d.toFixed(2)+' m';
   el.vG.textContent=g.toFixed(2)+' m';
+  el.vSh.textContent=sh.toFixed(2)+' m';
+  el.vTd.textContent=td.toFixed(2)+' m';
 
   const svg=el.svg,rect=svg.getBoundingClientRect();
   const sz=Math.min(rect.width||800,rect.height||800);
   svg.setAttribute('viewBox',`0 0 ${sz} ${sz}`);
-  const cx=sz/2,cy=sz/2,pad=sz*.12,sc=(sz/2-pad)/(G.R*1.15);
+  const maxR=Math.sqrt(G.R*G.R+g*g+2*G.R*g*Math.cos(Math.PI/n));
+  const cx=sz/2,cy=sz/2,pad=sz*.12,sc=(sz/2-pad)/(Math.max(maxR,G.R)*1.15);
   let h='';
 
-  // grid
-  for(let r=.5;r<=G.R*1.4;r+=.5){
+  for(let r=.5;r<=Math.max(G.R*1.4,G.R+g+1);r+=.5){
     const rp=r*sc;
     h+=`<circle cx="${cx}" cy="${cy}" r="${rp}" fill="none" stroke="#181818" stroke-width=".5"/>`;
     if(r%1===0)h+=`<text x="${cx+3}" y="${cy-rp+11}" fill="#252525" font-size="9" font-family="system-ui">${r.toFixed(0)}m</text>`;
   }
 
-  // vertices
   const V=[],iv=d>0&&G.a>d,dApo=d>0?Math.max(0,G.a-d):0,dR=dApo/Math.cos(Math.PI/n),IV=[];
   for(let i=0;i<n;i++){
     const a=-Math.PI/2+2*Math.PI*i/n;
@@ -130,24 +151,27 @@ function draw(){
     if(iv)IV.push({x:cx+dR*sc*Math.cos(a),y:cy+dR*sc*Math.sin(a)});
   }
 
-  // dashed outline
   h+=`<polygon points="${V.map(v=>v.x.toFixed(1)+','+v.y.toFixed(1)).join(' ')}" fill="none" stroke="#222" stroke-width="1" stroke-dasharray="4,4"/>`;
   if(iv)h+=`<polygon points="${IV.map(v=>v.x.toFixed(1)+','+v.y.toFixed(1)).join(' ')}" fill="none" stroke="#1a1a1a" stroke-width=".5" stroke-dasharray="2,4"/>`;
 
-  // free space circle
   if(iv){
     const fr=dApo*sc;
     h+=`<circle cx="${cx}" cy="${cy}" r="${fr}" fill="rgba(68,170,153,.03)" stroke="rgba(68,170,153,.12)" stroke-width=".5" stroke-dasharray="3,3"/>`;
+    h+=`<line x1="${cx}" y1="${cy}" x2="${cx}" y2="${(cy-fr).toFixed(1)}" stroke="rgba(68,170,153,.18)" stroke-width=".5"/>`;
+    h+=`<text x="${(cx+5).toFixed(1)}" y="${(cy-fr/2+3).toFixed(1)}" fill="rgba(68,170,153,.3)" font-size="8" font-family="system-ui">\u2300 ${(dApo*2).toFixed(2)}m</text>`;
   }
 
-  // modules
+  const headR=td*0.2;
+
   for(let i=0;i<n;i++){
     const t=ST[i]||'ws',v1=V[i],v2=V[(i+1)%n];
     const dx=v2.x-v1.x,dy=v2.y-v1.y,len=Math.sqrt(dx*dx+dy*dy),ux=dx/len,uy=dy/len;
-    const gp=g*sc,el2=len-gp*2;
-    if(el2<=0)continue;
-    const s1={x:v1.x+ux*gp,y:v1.y+uy*gp},e1={x:v2.x-ux*gp,y:v2.y-uy*gp};
-    const gf=gp/len;
+    const go=g*sc;
+    const smx=(v1.x+v2.x)/2,smy=(v1.y+v2.y)/2;
+    const sdx=smx-cx,sdy=smy-cy;
+    const sdl=Math.sqrt(sdx*sdx+sdy*sdy);
+    const onx=sdx/sdl,ony=sdy/sdl;
+    const s1={x:v1.x+onx*go,y:v1.y+ony*go},e1={x:v2.x+onx*go,y:v2.y+ony*go};
 
     if(t==='op'){
       h+=`<line x1="${s1.x.toFixed(1)}" y1="${s1.y.toFixed(1)}" x2="${e1.x.toFixed(1)}" y2="${e1.y.toFixed(1)}" stroke="#333" stroke-width="1" stroke-dasharray="3,5"/>`;
@@ -161,18 +185,24 @@ function draw(){
       h+=`<line x1="${s1.x.toFixed(1)}" y1="${s1.y.toFixed(1)}" x2="${e1.x.toFixed(1)}" y2="${e1.y.toFixed(1)}" stroke="#4a9" stroke-width="2.5"/>`;
       if(iv){
         const i1=IV[i],i2=IV[(i+1)%n];
-        const is1={x:i1.x+(i2.x-i1.x)*gf,y:i1.y+(i2.y-i1.y)*gf};
-        const ie1={x:i2.x-(i2.x-i1.x)*gf,y:i2.y-(i2.y-i1.y)*gf};
+        const is1={x:i1.x+onx*go,y:i1.y+ony*go};
+        const ie1={x:i2.x+onx*go,y:i2.y+ony*go};
         h+=`<polygon points="${s1.x.toFixed(1)},${s1.y.toFixed(1)} ${e1.x.toFixed(1)},${e1.y.toFixed(1)} ${ie1.x.toFixed(1)},${ie1.y.toFixed(1)} ${is1.x.toFixed(1)},${is1.y.toFixed(1)}" fill="rgba(160,120,60,.2)" stroke="rgba(160,120,60,.4)" stroke-width=".5"/>`;
         h+=`<line x1="${is1.x.toFixed(1)}" y1="${is1.y.toFixed(1)}" x2="${ie1.x.toFixed(1)}" y2="${ie1.y.toFixed(1)}" stroke="rgba(68,170,153,.4)" stroke-width="1"/>`;
-        // person
+
         const ma2=-Math.PI/2+2*Math.PI*i/n+Math.PI/n;
         const iwx=-(Math.cos(ma2)),iwy=-(Math.sin(ma2));
         const pmx=(is1.x+ie1.x)/2,pmy=(is1.y+ie1.y)/2;
-        const pr=.17*sc,px=pmx+iwx*pr*1.8,py=pmy+iwy*pr*1.8;
-        h+=`<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="${pr.toFixed(1)}" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.3)" stroke-width=".8"/>`;
-        // facing dot (toward screen = outward)
-        h+=`<circle cx="${(px-iwx*pr*.6).toFixed(1)}" cy="${(py-iwy*pr*.6).toFixed(1)}" r="${(pr*.25).toFixed(1)}" fill="rgba(255,255,255,.3)"/>`;
+        const shPx=sh*sc/2,tdPx=td*sc/2;
+        const distFromBench=tdPx+headR*sc*1.2;
+        const px=pmx+iwx*distFromBench,py=pmy+iwy*distFromBench;
+        const sideAngle=Math.atan2(v2.y-v1.y,v2.x-v1.x);
+        const bodyFill='rgba(255,255,255,.1)',bodyStroke='rgba(255,255,255,.3)';
+        const headFill='rgba(255,255,255,.3)';
+        const headPx=headR*sc;
+        const headCx=px,headCy=py;
+        h+=`<ellipse cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" rx="${shPx.toFixed(1)}" ry="${tdPx.toFixed(1)}" fill="${bodyFill}" stroke="${bodyStroke}" stroke-width=".8" transform="rotate(${(sideAngle*180/Math.PI).toFixed(1)},${px.toFixed(1)},${py.toFixed(1)})"/>`;
+        h+=`<circle cx="${headCx.toFixed(1)}" cy="${headCy.toFixed(1)}" r="${headPx.toFixed(1)}" fill="${headFill}"/>`;
       }
     } else {
       h+=`<line x1="${s1.x.toFixed(1)}" y1="${s1.y.toFixed(1)}" x2="${e1.x.toFixed(1)}" y2="${e1.y.toFixed(1)}" stroke="rgba(184,136,0,.25)" stroke-width="7"/>`;
@@ -180,53 +210,55 @@ function draw(){
     }
   }
 
-  // center
   h+=`<circle cx="${cx}" cy="${cy}" r="2.5" fill="#333"/>`;
 
-  // scale bar
   const barY=sz-25,barX=25,barL=sc;
   h+=`<line x1="${barX}" y1="${barY}" x2="${barX+barL}" y2="${barY}" stroke="#444" stroke-width="1.5"/>`;
   h+=`<line x1="${barX}" y1="${barY-3}" x2="${barX}" y2="${barY+3}" stroke="#444" stroke-width="1"/>`;
   h+=`<line x1="${barX+barL}" y1="${barY-3}" x2="${barX+barL}" y2="${barY+3}" stroke="#444" stroke-width="1"/>`;
   h+=`<text x="${barX+barL/2}" y="${barY-7}" fill="#444" font-size="9" font-family="system-ui" text-anchor="middle">1 m</text>`;
 
-  // side length label on side 0
   const l0m={x:(V[0].x+V[1].x)/2,y:(V[0].y+V[1].y)/2};
   const l0a=-Math.PI/2+Math.PI/n;
   h+=`<text x="${(l0m.x+Math.cos(l0a)*18).toFixed(1)}" y="${(l0m.y+Math.sin(l0a)*18).toFixed(1)}" fill="#444" font-size="9" font-family="system-ui" text-anchor="middle">${s.toFixed(2)} m</text>`;
 
-  // diameter
   const dia=G.R*2,di=Math.floor(n/2);
   h+=`<line x1="${V[0].x.toFixed(1)}" y1="${V[0].y.toFixed(1)}" x2="${V[di].x.toFixed(1)}" y2="${V[di].y.toFixed(1)}" stroke="#1e1e1e" stroke-width=".5" stroke-dasharray="2,3"/>`;
   h+=`<text x="${((V[0].x+V[di].x)/2+10).toFixed(1)}" y="${((V[0].y+V[di].y)/2).toFixed(1)}" fill="#333" font-size="9" font-family="system-ui">\u2300 ${dia.toFixed(2)} m</text>`;
 
-  // bench→center label
   if(iv){
     const bca=-Math.PI/2+Math.PI/n;
-    const bcx=cx+Math.cos(bca)*dApo*sc*.5;
-    const bcy=cy+Math.sin(bca)*dApo*sc*.5;
-    h+=`<text x="${bcx.toFixed(1)}" y="${bcy.toFixed(1)}" fill="rgba(68,170,153,.35)" font-size="8" font-family="system-ui" text-anchor="middle">${dApo.toFixed(2)}m</text>`;
+    const dApoOff=dApo+g;
+    const bcx=cx+Math.cos(bca)*dApoOff*sc*.5;
+    const bcy=cy+Math.sin(bca)*dApoOff*sc*.5;
+    h+=`<text x="${bcx.toFixed(1)}" y="${bcy.toFixed(1)}" fill="rgba(68,170,153,.35)" font-size="8" font-family="system-ui" text-anchor="middle">${dApoOff.toFixed(2)}m</text>`;
   }
 
   svg.innerHTML=h;
 
-  // metrics
   const tanN=Math.tan(Math.PI/n);
   const benchPerSide=tanN*(2*G.a*d-d*d);
   const wsC=ST.filter(t=>t==='ws').length;
   const ptC=ST.filter(t=>t==='pt').length;
   const opC=ST.filter(t=>t==='op').length;
   const totalBench=wsC*benchPerSide;
-  const innerArea=n>0&&iv?n*dApo*dApo*tanN:G.area;
-  const freeArea=G.area-totalBench;
-  const effMod=Math.max(0,s-g*2);
+  const gapActual=2*g*Math.sin(Math.PI/n);
+  const dApoOff=dApo+g;
+  const expandedArea=n*(G.a+g)*(G.a+g)*tanN;
 
-  // distance bench→opposite
-  let benchToOpposite='—';
+  let benchToOpposite='\u2014';
   if(iv){
-    if(n%2===0)benchToOpposite=(dApo+G.a).toFixed(2)+' m';
-    else benchToOpposite=(dApo+G.R).toFixed(2)+' m';
+    if(n%2===0)benchToOpposite=(dApoOff+(G.a+g)).toFixed(2)+' m';
+    else benchToOpposite=(dApoOff+Math.sqrt((G.R+g)*(G.R+g))).toFixed(2)+' m';
   }
+
+  const freeCircleR=iv?dApoOff:G.a+g;
+  const freeCircleD=freeCircleR*2;
+  const freeCircleArea=Math.PI*freeCircleR*freeCircleR;
+  const personEllipseArea=Math.PI*(sh/2)*(td/2);
+  const personFitArea=personEllipseArea>0?Math.floor(freeCircleArea/personEllipseArea):0;
+  const personMaxDim=Math.max(sh,td);
+  const personFitDiam=personMaxDim>0?Math.floor(freeCircleD/personMaxDim):0;
 
   el.met.innerHTML=`
     <h2>Geometria</h2>
@@ -235,24 +267,37 @@ function draw(){
     <div class="mr"><span class="k">Apótema (a)</span><span class="v">${G.a.toFixed(2)} m</span></div>
     <div class="mr"><span class="k">Diâmetro</span><span class="v hl">${dia.toFixed(2)} m</span></div>
     <div class="mr"><span class="k">Área total</span><span class="v hl">${G.area.toFixed(2)} m²</span></div>
+    ${g>0?`<div class="mr"><span class="k">Área expandida</span><span class="v hl">${expandedArea.toFixed(2)} m²</span></div>`:''}
+    <hr class="sep">
+    <h2>Espaço livre (círculo inscrito)</h2>
+    <div class="mr"><span class="k">Raio</span><span class="v">${freeCircleR.toFixed(2)} m</span></div>
+    <div class="mr"><span class="k">Diâmetro</span><span class="v hl">${freeCircleD.toFixed(2)} m</span></div>
+    <div class="mr"><span class="k">Área</span><span class="v hl">${freeCircleArea.toFixed(2)} m²</span></div>
+    <hr class="sep">
+    <h2>Pessoa (${(sh*100).toFixed(0)}x${(td*100).toFixed(0)} cm)</h2>
+    <div class="mr"><span class="k">Ombros (eixo maior)</span><span class="v">${sh.toFixed(2)} m</span></div>
+    <div class="mr"><span class="k">Costas→barriga (menor)</span><span class="v">${td.toFixed(2)} m</span></div>
+    <div class="mr"><span class="k">Área da elipse</span><span class="v">${personEllipseArea.toFixed(3)} m²</span></div>
+    <div class="mr"><span class="k">Cabe no espaço (diâm.)</span><span class="v">${personFitDiam} pessoa${personFitDiam!==1?'s':''}</span></div>
+    <div class="mr"><span class="k">Cabe no espaço (área)</span><span class="v">~${personFitArea} pessoa${personFitArea!==1?'s':''}</span></div>
     ${d>0?`
     <hr class="sep">
     <h2>Com bancadas</h2>
     <div class="mr"><span class="k">Área das bancadas</span><span class="v">${totalBench.toFixed(2)} m²</span></div>
-    <div class="mr"><span class="k">Área livre</span><span class="v hl">${freeArea.toFixed(2)} m²</span></div>
-    <div class="mr"><span class="k">Bancada → centro</span><span class="v hl">${dApo.toFixed(2)} m</span></div>
+    <div class="mr"><span class="k">Bancada → centro</span><span class="v hl">${dApoOff.toFixed(2)} m</span></div>
     <div class="mr"><span class="k">Bancada → oposto</span><span class="v">${benchToOpposite}</span></div>
     `:''}
     <hr class="sep">
     <h2>Módulos</h2>
-    <div class="mr"><span class="k">Largura útil (c/ gap)</span><span class="v">${effMod.toFixed(2)} m</span></div>
+    <div class="mr"><span class="k">Largura do módulo</span><span class="v">${s.toFixed(2)} m</span></div>
+    ${g>0?`<div class="mr"><span class="k">Abertura real/vértice</span><span class="v hl">${gapActual.toFixed(2)} m</span></div>`:''}
     <div class="mr"><span class="k">Workstations</span><span class="v" style="color:#4a9">${wsC}</span></div>
     <div class="mr"><span class="k">Partitions</span><span class="v" style="color:#b80">${ptC}</span></div>
     <div class="mr"><span class="k">Aberturas</span><span class="v" style="color:#777">${opC}</span></div>
   `;
 }
 
-[el.rS,el.rD,el.rG,el.selN].forEach(e=>e.addEventListener('input',()=>{if(e===el.selN)initST();draw()}));
+[el.rS,el.rD,el.rG,el.rSh,el.rTd,el.selN].forEach(e=>e.addEventListener('input',()=>{if(e===el.selN)initST();draw()}));
 window.addEventListener('resize',draw);
 initST();
 requestAnimationFrame(draw);
