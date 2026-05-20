@@ -109,6 +109,8 @@ For modules to join into polygons, each module needs:
 
 See [docs/layout-ideas.md](docs/layout-ideas.md) for detailed layout analysis.
 
+**[Interactive Polygon Explorer →](https://lara-uerj.github.io/Habitat/tools/polygon-explorer.html)** — Adjust polygon, module size, bench depth, gaps, and person dimensions to visualize arrangements in scale.
+
 ## Layout Ideas
 
 See [docs/layout-ideas.md](docs/layout-ideas.md) for spatial organization concepts, including a proposed layout for the LaRA 7×7m lab.
