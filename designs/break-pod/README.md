@@ -157,11 +157,11 @@ A "casulo de pausa" — a coffee break cockpit, a social anchor in the lab.
 
 ## Principles Being Evaluated
 
-- [Everything on casters](../docs/design-principles-catalog.md#everything-on-casters) — Mobile social infrastructure, reconfigurable in minutes
-- [Task differentiation](../docs/concepts.md#1-robert-propst--the-office-a-facility-based-on-change-1968) — A dedicated station for breaks, distinct from work zones
-- [Walls as mental extension](../docs/design-principles-catalog.md#walls-as-mental-extension) — Shelving and pegboard display supplies as part of the aesthetic
-- [Gradual privacy](../docs/design-principles-catalog.md#gradual-privacy-not-binary) — Semi-open, social posture — the opposite of the Focus Pod, a complementary social node
-- [Postural variation](../docs/design-principles-catalog.md#postural-variation) — Standing at counter + perched on stools — a break from seated work
+- [Everything on casters](../../docs/design-principles-catalog.md#everything-on-casters) — Mobile social infrastructure, reconfigurable in minutes
+- [Task differentiation](../../docs/concepts.md#1-robert-propst--the-office-a-facility-based-on-change-1968) — A dedicated station for breaks, distinct from work zones
+- [Walls as mental extension](../../docs/design-principles-catalog.md#walls-as-mental-extension) — Shelving and pegboard display supplies as part of the aesthetic
+- [Gradual privacy](../../docs/design-principles-catalog.md#gradual-privacy-not-binary) — Semi-open, social posture — the opposite of the Focus Pod, a complementary social node
+- [Postural variation](../../docs/design-principles-catalog.md#postural-variation) — Standing at counter + perched on stools — a break from seated work
 
 ---
 

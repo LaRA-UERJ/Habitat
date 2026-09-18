@@ -54,10 +54,10 @@ A self-contained workbench for soldering and electronics rework that can be move
 
 ### Principles Being Evaluated
 
-- [Postural variation](../docs/design-principles-catalog.md#postural-variation) — Standing-only for this bench
-- [Everything on casters](../docs/design-principles-catalog.md#everything-on-casters) — Mobile by requirement
-- [Vertical surfaces as mental extension](../docs/design-principles-catalog.md#walls-as-mental-extension) — Pegboard as tool display + shadow board
-- [Task differentiation](../docs/concepts.md#1-robert-propst--the-office-a-facility-based-on-change-1968) — This bench is only for soldering/rework, not general workspace
+- [Postural variation](../../docs/design-principles-catalog.md#postural-variation) — Standing-only for this bench
+- [Everything on casters](../../docs/design-principles-catalog.md#everything-on-casters) — Mobile by requirement
+- [Vertical surfaces as mental extension](../../docs/design-principles-catalog.md#walls-as-mental-extension) — Pegboard as tool display + shadow board
+- [Task differentiation](../../docs/concepts.md#1-robert-propst--the-office-a-facility-based-on-change-1968) — This bench is only for soldering/rework, not general workspace
 
 ### Open Questions
 
@@ -73,4 +73,4 @@ A self-contained workbench for soldering and electronics rework that can be move
 | Path | Description |
 |---|---|
 | `cad/` | CAD files (.step, .FCStd) — to be added |
-| `assets/` | Reference images and renders — to be added |
+| `assets/` | Imagens de referência e renders |

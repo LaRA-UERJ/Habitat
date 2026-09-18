@@ -223,12 +223,12 @@ The desk is the most interesting mechanical element of the pod.
 
 ## Principles Being Evaluated
 
-- [Gradual privacy](../docs/design-principles-catalog.md#gradual-privacy-not-binary) — High privacy zone: deep focus and calls, semi-enclosed but not claustrophobic
-- [Everything on casters](../docs/design-principles-catalog.md#everything-on-casters) — Mobile architecture, reconfigurable in minutes
-- [Noise gradient](../docs/design-principles-catalog.md#noise-gradient) — Acoustic isolation for the quietest zone in the lab
-- [Postural variation](../docs/design-principles-catalog.md#postural-variation) — Lounge seating + desk surface = comfortable alternation
-- [Task differentiation](../docs/concepts.md#1-robert-propst--the-office-a-facility-based-on-change-1968) — A dedicated space for focused individual work, distinct from collaborative benches
-- [Walls as mental extension](../docs/design-principles-catalog.md#walls-as-mental-extension) — Panels define territory and reduce visual noise
+- [Gradual privacy](../../docs/design-principles-catalog.md#gradual-privacy-not-binary) — High privacy zone: deep focus and calls, semi-enclosed but not claustrophobic
+- [Everything on casters](../../docs/design-principles-catalog.md#everything-on-casters) — Mobile architecture, reconfigurable in minutes
+- [Noise gradient](../../docs/design-principles-catalog.md#noise-gradient) — Acoustic isolation for the quietest zone in the lab
+- [Postural variation](../../docs/design-principles-catalog.md#postural-variation) — Lounge seating + desk surface = comfortable alternation
+- [Task differentiation](../../docs/concepts.md#1-robert-propst--the-office-a-facility-based-on-change-1968) — A dedicated space for focused individual work, distinct from collaborative benches
+- [Walls as mental extension](../../docs/design-principles-catalog.md#walls-as-mental-extension) — Panels define territory and reduce visual noise
 
 ---
 

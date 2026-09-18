@@ -46,7 +46,7 @@ A modular workstation for CAD, programming, and documentation work. The key feat
 
 ### 120° Angle Rationale
 
-From [Propst's principles](../docs/design-principles-catalog.md#120-instead-of-90):
+From [Propst's principles](../../docs/design-principles-catalog.md#120-instead-of-90):
 - 120° creates a partial enclosure without feeling confined
 - Preserves peripheral vision — awareness of the lab
 - Natural entry/exit flow — not backing into a corner
@@ -63,11 +63,11 @@ From [Propst's principles](../docs/design-principles-catalog.md#120-instead-of-9
 
 ### Principles Being Evaluated
 
-- [120° instead of 90°](../docs/design-principles-catalog.md#120-instead-of-90) — Core design feature
-- [Vertical surfaces as mental extension](../docs/design-principles-catalog.md#walls-as-mental-extension) — Whiteboard as working memory
-- [Postural variation](../docs/design-principles-catalog.md#postural-variation) — Should support both sitting and standing
-- [Everything on casters](../docs/design-principles-catalog.md#everything-on-casters) — Mobile by requirement
-- [Gradual privacy](../docs/design-principles-catalog.md#gradual-privacy-not-binary) — 120° bay provides medium privacy for focused CAD work
+- [120° instead of 90°](../../docs/design-principles-catalog.md#120-instead-of-90) — Core design feature
+- [Vertical surfaces as mental extension](../../docs/design-principles-catalog.md#walls-as-mental-extension) — Whiteboard as working memory
+- [Postural variation](../../docs/design-principles-catalog.md#postural-variation) — Should support both sitting and standing
+- [Everything on casters](../../docs/design-principles-catalog.md#everything-on-casters) — Mobile by requirement
+- [Gradual privacy](../../docs/design-principles-catalog.md#gradual-privacy-not-binary) — 120° bay provides medium privacy for focused CAD work
 
 ### Open Questions
 
@@ -84,4 +84,4 @@ From [Propst's principles](../docs/design-principles-catalog.md#120-instead-of-9
 | Path | Description |
 |---|---|
 | `cad/` | CAD files (.step, .FCStd) — to be added |
-| `assets/` | Reference images and renders — to be added |
+| `assets/` | Imagens de referência e renders |
