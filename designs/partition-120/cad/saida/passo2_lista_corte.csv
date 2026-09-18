@@ -1,0 +1,9 @@
+peca;perfil;comprimento_mm;qtd;observacao
+montante;30x30x1,5;1600;6;ponta 90 graus
+travessa;30x30x1,5;840;6;ponta 90 graus
+chapa_base;chapa aco;100.0;4;"100x70x4 mm; 4 rasgos oblongos 25x9 passo 70x40 (conferir com o rodizio comprado); soldada sob a travessa inferior"
+rodizio;roda 75 mm c/ freio, altura 102;-;4;parafusado na chapa soldada sob a travessa inferior
+cantoneira;chapa aco dobrada 3 mm;25.0;12;"CANTONEIRA 25x25x3, perna A 22.5 x 25 soldada DE FACE na face interna do montante, perna B 25 deitada sobre o compensado; furo dia 4.2 a 15 mm da face interna; 4 por folha (Z0+200 e Z0+1340)"
+compensado;placa decorada 15 mm;834.0;3;"834x1534x15 mm; 3 mm de folga ao tubo em todo o contorno (834 no vao de 840); decorada, acabamento opcional"
+acabamento;espuma 3 mm + tecido <1 mm;834.0;6;"OPCIONAL, nao modelado; uma por face; se aplicado, soldar a aba com o painel montado e usar parafuso dia 4 x 20"
+parafuso;madeira dia 4 x 16, cabeca panela dia 8;16.0;12;"furo piloto dia 2.5; 3 mm na perna B + 13 mm no compensado (2 mm de fundo); 4 por folha"

@@ -1,0 +1,874 @@
+{
+ "cadeia_alturas_mm": {
+  "rodizio": 102.0,
+  "chapa": 4.0,
+  "base_quadro": 106.0,
+  "topo": 1706.0
+ },
+ "rodizio_ref": "dia 75 com freio, altura 102, placa 91.5x60, carga 70 kg/un",
+ "rodizios_por_folha": {
+  "folha1": 2,
+  "folha2": 0,
+  "folha3": 2
+ },
+ "recuo_rodizio_mm": 100.0,
+ "parametros_painel_mm": {
+  "compensado": [
+   834.0,
+   1534.0,
+   15.0
+  ],
+  "acabamento_opcional_por_face_mm": 4.0,
+  "acabamento_detalhe": {
+   "espuma": 3.0,
+   "tecido": 1.0,
+   "nota": "opcional, nao modelado"
+  },
+  "cantoneira": {
+   "chapa": 3.0,
+   "altura": 25.0,
+   "perna_A": {
+    "u": [
+     -15.0,
+     7.5
+    ],
+    "v": [
+     0.0,
+     3.0
+    ],
+    "contato_solda_mm": [
+     22.5,
+     25.0
+    ]
+   },
+   "perna_B": {
+    "u": [
+     7.5,
+     10.5
+    ],
+    "v": [
+     0.0,
+     25.0
+    ]
+   },
+   "furo": [
+    4.2,
+    15.0
+   ],
+   "volume_nominal_spec_mm3": 3337.5
+  },
+  "parafuso": [
+   4.0,
+   16.0,
+   8.0,
+   1.6,
+   2.5
+  ],
+  "parafuso_com_acabamento": 20.0,
+  "folga_compensado_tubo": 3.0,
+  "espessura_total_nominal": 15.0,
+  "densidades": {
+   "compensado": 600.0
+  }
+ },
+ "angulos_internos": [
+  120.0,
+  120.0
+ ],
+ "bbox_modelo_mm": [
+  0.0,
+  -35.0,
+  0.0,
+  1363.0,
+  1566.3,
+  1706.0
+ ],
+ "n_pecas": 67,
+ "n_abas": 12,
+ "aba_alturas_z_medidas": [
+  306.0,
+  1446.0
+ ],
+ "volume_cantoneira_medido_mm3": 3520.9,
+ "volume_cantoneira_nominal_spec_mm3": 3337.5,
+ "desvio_volume_cantoneira_mm3": 183.4,
+ "tubo_total_m": 14.64,
+ "massa_tubo_kg": 19.65,
+ "n_chapas": 4,
+ "massa_chapas_kg": 0.88,
+ "n_rodizios": 4,
+ "grafo_do_quadro": {
+  "folha1_mont_a": [
+   "folha1_trav_inf",
+   "folha1_trav_sup"
+  ],
+  "folha1_mont_b": [
+   "folha1_trav_inf",
+   "folha1_trav_sup",
+   "folha2_mont_a"
+  ],
+  "folha1_trav_inf": [
+   "folha1_mont_a",
+   "folha1_mont_b"
+  ],
+  "folha1_trav_sup": [
+   "folha1_mont_a",
+   "folha1_mont_b"
+  ],
+  "folha2_mont_a": [
+   "folha1_mont_b",
+   "folha2_trav_inf",
+   "folha2_trav_sup"
+  ],
+  "folha2_mont_b": [
+   "folha2_trav_inf",
+   "folha2_trav_sup",
+   "folha3_mont_a"
+  ],
+  "folha2_trav_inf": [
+   "folha2_mont_a",
+   "folha2_mont_b"
+  ],
+  "folha2_trav_sup": [
+   "folha2_mont_a",
+   "folha2_mont_b"
+  ],
+  "folha3_mont_a": [
+   "folha2_mont_b",
+   "folha3_trav_inf",
+   "folha3_trav_sup"
+  ],
+  "folha3_mont_b": [
+   "folha3_trav_inf",
+   "folha3_trav_sup"
+  ],
+  "folha3_trav_inf": [
+   "folha3_mont_a",
+   "folha3_mont_b"
+  ],
+  "folha3_trav_sup": [
+   "folha3_mont_a",
+   "folha3_mont_b"
+  ]
+ },
+ "aba_contatos": {
+  "folha1_a_aba_1": {
+   "perna_A_montante_mm": 0.0,
+   "perna_B_compensado_mm": 0.0
+  },
+  "folha1_a_aba_2": {
+   "perna_A_montante_mm": 0.0,
+   "perna_B_compensado_mm": 0.0
+  },
+  "folha1_b_aba_1": {
+   "perna_A_montante_mm": 0.0,
+   "perna_B_compensado_mm": 0.0
+  },
+  "folha1_b_aba_2": {
+   "perna_A_montante_mm": 0.0,
+   "perna_B_compensado_mm": 0.0
+  },
+  "folha2_a_aba_1": {
+   "perna_A_montante_mm": 0.0,
+   "perna_B_compensado_mm": 0.0
+  },
+  "folha2_a_aba_2": {
+   "perna_A_montante_mm": 0.0,
+   "perna_B_compensado_mm": 0.0
+  },
+  "folha2_b_aba_1": {
+   "perna_A_montante_mm": 0.0,
+   "perna_B_compensado_mm": 0.0
+  },
+  "folha2_b_aba_2": {
+   "perna_A_montante_mm": 0.0,
+   "perna_B_compensado_mm": 0.0
+  },
+  "folha3_a_aba_1": {
+   "perna_A_montante_mm": 0.0,
+   "perna_B_compensado_mm": 0.0
+  },
+  "folha3_a_aba_2": {
+   "perna_A_montante_mm": 0.0,
+   "perna_B_compensado_mm": 0.0
+  },
+  "folha3_b_aba_1": {
+   "perna_A_montante_mm": 0.0,
+   "perna_B_compensado_mm": 0.0
+  },
+  "folha3_b_aba_2": {
+   "perna_A_montante_mm": 0.0,
+   "perna_B_compensado_mm": 0.0
+  }
+ },
+ "aba_uv_medido_mm": {
+  "folha1_a_aba_1": {
+   "u": [
+    -15.0,
+    10.5
+   ],
+   "v": [
+    0.0,
+    25.0
+   ]
+  },
+  "folha2_a_aba_1": {
+   "u": [
+    -15.0,
+    10.5
+   ],
+   "v": [
+    -0.0,
+    25.0
+   ]
+  },
+  "folha3_a_aba_1": {
+   "u": [
+    -15.0,
+    10.5
+   ],
+   "v": [
+    -0.0,
+    25.0
+   ]
+  }
+ },
+ "folga_compensado_tubo_mm": {
+  "folha1_compensado_x_folha1_mont_a": 3.0,
+  "folha1_compensado_x_folha1_mont_b": 3.0,
+  "folha1_compensado_x_folha1_trav_inf": 3.0,
+  "folha1_compensado_x_folha1_trav_sup": 3.0,
+  "folha2_compensado_x_folha2_mont_a": 3.0,
+  "folha2_compensado_x_folha2_mont_b": 3.0,
+  "folha2_compensado_x_folha2_trav_inf": 3.0,
+  "folha2_compensado_x_folha2_trav_sup": 3.0,
+  "folha3_compensado_x_folha3_mont_a": 3.0,
+  "folha3_compensado_x_folha3_mont_b": 3.0,
+  "folha3_compensado_x_folha3_trav_inf": 3.0,
+  "folha3_compensado_x_folha3_trav_sup": 3.0
+ },
+ "folga_min_compensado_tubo_mm": 3.0,
+ "par_folga_min_compensado": "folha3_compensado x folha3_mont_b",
+ "folga_compensado_travessa_V_mm": 3.0,
+ "folga_compensado_travessa_S_mm": 3.0,
+ "interferencia_max_mm3": 207846.097,
+ "par_com_interferencia": "folha2_mont_b x folha3_mont_a",
+ "interferencia_max_por_tipo_mm3": {
+  "aba x aba": 0.0,
+  "aba x painel": 0.0,
+  "aba x parafuso": 0.0,
+  "aba x quadro": 0.0,
+  "painel x painel": 0.0,
+  "painel x parafuso": 163.363,
+  "painel x quadro": 0.0,
+  "parafuso x parafuso": 0.0,
+  "quadro x quadro": 207846.097
+ },
+ "interferencia_herdada_do_1b_mm3": {
+  "quadro x quadro": 207846.1
+ },
+ "pares_interferencia_testados": 92,
+ "pares_descartados_por_bbox": 1375,
+ "parafuso_no_compensado_mm3": 163.4,
+ "parafuso_x_aba_mm3": 0.0,
+ "cabeca_x_aba_mm3": 0.0,
+ "rodizio_toca_chao_mm": 0.0,
+ "painel_espessura_medida_mm": 15.0,
+ "painel_espessura_nominal_mm": 15.0,
+ "painel_faixa_ni_mm": [
+  -7.5,
+  7.5
+ ],
+ "painel_bbox_folha1_mm": [
+  33.0,
+  -7.5,
+  139.0,
+  867.0,
+  7.5,
+  1673.0
+ ],
+ "altura_total_mm": 1706.0,
+ "topo_do_painel_mm": 1673.0,
+ "massa_por_kit_kg": {
+  "abas": 0.332,
+  "chapas_rodizio": 0.766,
+  "compensado": 34.543,
+  "parafusos": 0.026,
+  "tubo": 19.652
+ },
+ "metodo_tubo": "secao vazada x comprimento (171 mm2)",
+ "massa_painel_por_folha_kg": {
+  "folha1": 11.51,
+  "folha2": 11.51,
+  "folha3": 11.51
+ },
+ "massa_abas_parafusos_por_folha_kg": {
+  "folha1": 0.119,
+  "folha2": 0.119,
+  "folha3": 0.119
+ },
+ "massa_folha_completa_kg": {
+  "folha1": 18.57,
+  "folha2": 18.18,
+  "folha3": 18.57
+ },
+ "massa_painel_folha_central_kg": 11.51,
+ "n_paineis": 3,
+ "massa_total_fabricada_kg": 55.32,
+ "carga_por_rodizio_kg": 13.8,
+ "limite_rodizio_kg": 70.0,
+ "folga_limite_rodizio_kg": 56.2,
+ "cg_conjunto_mm": [
+  898.4,
+  520.5,
+  894.7
+ ],
+ "massa_conjunto_cg_kg": 55.32,
+ "poligono_apoio": [
+  [
+   100.0,
+   0.0
+  ],
+  [
+   800.0,
+   0.0
+  ],
+  [
+   1300.0,
+   866.0
+  ],
+  [
+   950.0,
+   1472.2
+  ]
+ ],
+ "cg_dentro_do_poligono": true,
+ "margem_tombamento_mm": 175.0,
+ "tombamento_graus": 11.07,
+ "comparacao_passo1b": {
+  "margem_mm": 179.9,
+  "graus": 11.62
+ },
+ "perda_margem_mm": 4.9,
+ "perda_angulo_graus": 0.55,
+ "sensibilidade_compensado": [
+  {
+   "rho_kg_m3": 550.0,
+   "massa_total_kg": 52.44,
+   "cg_z_mm": 894.1,
+   "margem_mm": 175.1,
+   "tombamento_graus": 11.08,
+   "cg_dentro": true
+  },
+  {
+   "rho_kg_m3": 600.0,
+   "massa_total_kg": 55.32,
+   "cg_z_mm": 894.7,
+   "margem_mm": 175.0,
+   "tombamento_graus": 11.07,
+   "cg_dentro": true
+  },
+  {
+   "rho_kg_m3": 650.0,
+   "massa_total_kg": 58.2,
+   "cg_z_mm": 895.3,
+   "margem_mm": 174.9,
+   "tombamento_graus": 11.06,
+   "cg_dentro": true
+  }
+ ],
+ "faltas_ate_aqui": [],
+ "assinatura_compensado": {
+  "x": [
+   1,
+   0
+  ],
+  "y": [
+   0,
+   0
+  ],
+  "z": [
+   0,
+   1
+  ]
+ },
+ "vista_Frente": {
+  "visiveis": 254,
+  "ocultas": 527,
+  "ext_mm": [
+   1826.0,
+   1706.0
+  ],
+  "alertas": []
+ },
+ "vista_Lateral": {
+  "visiveis": 127,
+  "ocultas": 411,
+  "ext_mm": [
+   1363.0,
+   1706.0
+  ],
+  "alertas": []
+ },
+ "vista_Compensado": {
+  "visiveis": 4,
+  "ocultas": 4,
+  "ext_mm": [
+   834.0,
+   1534.0
+  ],
+  "alertas": []
+ },
+ "vista_Topo": {
+  "visiveis": 158,
+  "ocultas": 230,
+  "ext_mm": [
+   1363.0,
+   1601.3
+  ],
+  "alertas": []
+ },
+ "iso_recorte_px": {
+  "topo": 184,
+  "base": 1073,
+  "esq": 500,
+  "dir": 1287,
+  "crop": [
+   477,
+   161,
+   1310,
+   1096
+  ],
+  "recorte_mm": [
+   60.8,
+   68.2
+  ]
+ },
+ "iso_cores_px": {
+  "fundo": [
+   255,
+   255,
+   255
+  ],
+  "chao": [
+   196,
+   196,
+   194
+  ]
+ },
+ "regioes_vazias_mm": {
+  "vazio1": [
+   14.0,
+   14.0,
+   270.0,
+   68.0
+  ],
+  "vazio2": [
+   122.0,
+   74.0,
+   402.0,
+   104.0
+  ]
+ },
+ "carimbo_mm": [
+  273.0,
+  12.0,
+  408.0,
+  54.0
+ ],
+ "caixas_na_folha": {
+  "Frente": [
+   124.2,
+   205.0,
+   197.2,
+   273.2
+  ],
+  "Lateral": [
+   240.6,
+   205.0,
+   295.1,
+   273.2
+  ],
+  "Topo": [
+   338.5,
+   205.0,
+   393.0,
+   269.1
+  ],
+  "Compensado": [
+   28.0,
+   100.0,
+   69.7,
+   176.7
+  ],
+  "Iso": [
+   20.0,
+   205.0,
+   80.8,
+   273.2
+  ]
+ },
+ "area_util_ocupada_pct": 17.9,
+ "escalas": {
+  "Frente": 25,
+  "Lateral": 25,
+  "Topo": 25,
+  "Compensado": 20,
+  "Iso": "1:25 (render recortado no modelo, base alinhada)"
+ },
+ "textos_conferidos": 47,
+ "textos_na_folha": [
+  [
+   124.2,
+   275.53,
+   172.66,
+   278.36,
+   "FRENTE (1:25), folha central de face"
+  ],
+  [
+   240.6,
+   275.53,
+   298.15,
+   278.36,
+   "LATERAL (1:25), folhas das pontas de face"
+  ],
+  [
+   338.5,
+   271.35,
+   374.11,
+   274.17,
+   "TOPO (1:25), vista de cima"
+  ],
+  [
+   28.0,
+   178.99,
+   91.03,
+   181.82,
+   "COMPENSADO DECORADO (1:20) - 1 por folha"
+  ],
+  [
+   20.0,
+   275.53,
+   81.17,
+   278.36,
+   "ISOMETRICA (1:25, mesma escala das vistas)"
+  ],
+  [
+   28.0,
+   87.43,
+   91.41,
+   89.72,
+   "x = centro dos 4 furos de parafuso (piloto dia 2,5), a 12 mm da"
+  ],
+  [
+   28.0,
+   82.93,
+   75.8,
+   85.22,
+   "borda da placa, nas alturas Z0+200 e Z0+1340"
+  ],
+  [
+   272.0,
+   177.29,
+   304.93,
+   180.12,
+   "FIXACAO E MONTAGEM"
+  ],
+  [
+   272.0,
+   172.93,
+   355.36,
+   175.22,
+   "4 cantoneiras 25x25x3 por folha, soldadas de face na face interna dos montantes,"
+  ],
+  [
+   272.0,
+   168.43,
+   359.82,
+   170.72,
+   "em Z0+200 e Z0+1340 (2 por montante): perna A (22,5) soldada no tubo, perna B (25)"
+  ],
+  [
+   272.0,
+   163.93,
+   348.48,
+   166.22,
+   "deitada sobre a face do compensado, furo dia 4,2 a 15 mm da face interna."
+  ],
+  [
+   272.0,
+   159.43,
+   348.6,
+   161.72,
+   "Parafuso de madeira dia 4 x 16 (piloto dia 2,5): atravessa a perna B e entra"
+  ],
+  [
+   272.0,
+   154.93,
+   318.14,
+   157.22,
+   "13 mm no compensado, com 2 mm de fundo."
+  ],
+  [
+   272.0,
+   150.43,
+   359.87,
+   152.72,
+   "ORDEM: 1) soldar as cantoneiras. 2) colar o acabamento na placa (espuma 3 + tecido"
+  ],
+  [
+   272.0,
+   145.93,
+   335.73,
+   148.22,
+   "1 por face, opcional) e estofar. 3) encaixar a placa na moldura."
+  ],
+  [
+   272.0,
+   141.43,
+   350.77,
+   143.72,
+   "4) aparafusar: o parafuso pega a cantoneira, o acabamento e o compensado."
+  ],
+  [
+   272.0,
+   136.93,
+   358.8,
+   139.22,
+   "COM acabamento: soldar a cantoneira encostada no painel JA montado (face interna"
+  ],
+  [
+   272.0,
+   132.43,
+   339.55,
+   134.72,
+   "da perna B a 11,5 mm do plano medio) e usar parafuso dia 4 x 20."
+  ],
+  [
+   155.68,
+   198.73,
+   165.76,
+   201.02,
+   "1826 total"
+  ],
+  [
+   113.93,
+   234.08,
+   116.22,
+   244.16,
+   "1706 total"
+  ],
+  [
+   103.93,
+   234.8,
+   106.22,
+   247.68,
+   "1600 quadro"
+  ],
+  [
+   202.97,
+   197.72,
+   205.26,
+   216.52,
+   "106 rodizio+chapa"
+  ],
+  [
+   262.82,
+   198.73,
+   272.9,
+   201.02,
+   "1363 total"
+  ],
+  [
+   300.85,
+   234.08,
+   303.14,
+   244.16,
+   "1706 total"
+  ],
+  [
+   46.94,
+   93.73,
+   50.76,
+   96.02,
+   "834"
+  ],
+  [
+   75.43,
+   135.8,
+   77.72,
+   140.9,
+   "1534"
+  ],
+  [
+   360.72,
+   198.73,
+   370.8,
+   201.02,
+   "1363 total"
+  ],
+  [
+   322.23,
+   227.47,
+   324.52,
+   246.59,
+   "1601 profundidade"
+  ],
+  [
+   367.09,
+   261.36,
+   381.91,
+   264.54,
+   "120 graus"
+  ],
+  [
+   385.09,
+   230.18,
+   399.91,
+   233.36,
+   "120 graus"
+  ],
+  [
+   128.0,
+   177.29,
+   156.22,
+   180.12,
+   "LISTA DE MATERIAL"
+  ],
+  [
+   128.0,
+   172.43,
+   169.42,
+   174.72,
+   "peca        especificacao medida      qtd"
+  ],
+  [
+   128.0,
+   167.93,
+   167.26,
+   170.22,
+   "montante    30x30x1,5     1600 mm    6"
+  ],
+  [
+   128.0,
+   163.53,
+   165.73,
+   165.82,
+   "travessa    30x30x1,5      840 mm    6"
+  ],
+  [
+   128.0,
+   159.13,
+   165.35,
+   161.42,
+   "TOTAL tubo              14640 mm    12"
+  ],
+  [
+   128.0,
+   154.73,
+   195.68,
+   157.02,
+   "chapa base  100x70x4    400 mm    4   4 rasgos 25x9 passo 70x40"
+  ],
+  [
+   128.0,
+   150.33,
+   206.91,
+   152.62,
+   "cantoneira  L 25x25x3   perna A 22,5 12   2 por montante, Z0+200 e Z0+1340"
+  ],
+  [
+   128.0,
+   145.93,
+   200.52,
+   148.22,
+   "compensado  decorado 15   834 mm    3   (834 x 1534 mm), 1 por folha"
+  ],
+  [
+   128.0,
+   141.53,
+   196.06,
+   143.82,
+   "parafuso    madeira 4x16  16 mm    12   piloto 2,5; cabeca panela 8"
+  ],
+  [
+   128.0,
+   137.13,
+   197.59,
+   139.42,
+   "rodizio     dia 75 freio  102 mm    4   roda de borracha, placa 91,5x60"
+  ],
+  [
+   128.0,
+   132.73,
+   214.41,
+   135.02,
+   "acabamento  OPCIONAL      3+1 mm    -   espuma 3 mm e tecido <1 mm nas 2 faces"
+  ],
+  [
+   276.0,
+   48.62,
+   310.69,
+   52.15,
+   "Habitat / LaRA-UERJ"
+  ],
+  [
+   276.0,
+   42.29,
+   364.13,
+   45.12,
+   "BIOMBO 120  -  PASSO 2: PLACA DE COMPENSADO DECORADO"
+  ],
+  [
+   276.0,
+   34.93,
+   363.81,
+   37.22,
+   "Placa 834 x 1534 x 15 mm fixada por 12 cantoneiras 25x25x3; rodizio dia 75 com freio"
+  ],
+  [
+   276.0,
+   24.93,
+   367.59,
+   27.22,
+   "Cantoneira: perna A 22,5 soldada de face no montante + perna B deitada no compensado"
+  ],
+  [
+   276.0,
+   18.43,
+   362.76,
+   20.72,
+   "Fabricado 55.32 kg (tubo 19.652 + placa 34.543 + abas 0.332) | carga/rodizio 13.8 kg"
+  ],
+  [
+   276.0,
+   12.93,
+   377.95,
+   15.22,
+   "Tombamento 175.0 mm -> 11.07 graus (1b: 179,9 / 11,62) | A3 1o diedro  mm | Rev. 04  2026-09-18"
+  ]
+ ],
+ "prancha_pdf_bytes": 40732,
+ "dxf_bytes": 448527,
+ "step_bytes": 534631,
+ "step_pecas": 67,
+ "step_auxiliares_excluidos": 1,
+ "fcstd_vistas_vazias_removidas": [
+  "Compensado"
+ ],
+ "fcstd_auxiliares_removidos": 1,
+ "fcstd_auxiliares_reabertos": 0,
+ "fcstd_pecas_para_render": 67,
+ "fcstd_bytes": 86033,
+ "problemas": [],
+ "faltas": [],
+ "verificacao_ok": true,
+ "arquivos": {
+  "passo2_prancha.pdf": 40732,
+  "passo2_prancha.dxf": 448527,
+  "passo2_biombo.step": 534631,
+  "passo2_biombo.FCStd": 86033,
+  "passo2_lista_corte.csv": 1066,
+  "passo2_lista_compras.csv": 704
+ }
+}

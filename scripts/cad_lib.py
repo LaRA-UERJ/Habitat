@@ -256,6 +256,7 @@ class Folha:
         self.vistas = {}      # nome -> dict de vista + posicao
         self.tinta = []       # (x, y) mm de tudo desenhado
         self.ancoras = []     # (vista, x, y) extremidades de cota
+        self.textos = []      # (x0, y0, x1, y1, s) retangulo de cada texto desenhado
         self.problemas = []
 
     # ---- primitivas ----
@@ -285,6 +286,17 @@ class Folha:
             self.c.drawString(x * self.MM, y * self.MM, s)
         self.c.restoreState()
         self.tinta.append((x, y))
+        # retangulo ocupado pelo texto: e' o que permite auditar colisao sem enxergar
+        # (ver colisoes()). Altura util ~0,75 tam acima da linha de base e 0,25 abaixo.
+        fonte = "Helvetica-Bold" if negrito else "Helvetica"
+        w = self.c.stringWidth(s, fonte, tam) / self.MM
+        t = tam * 0.352778
+        if rot:
+            y0 = y - (w / 2.0 if centro else 0.0)
+            self.textos.append((x - 0.25 * t, y0, x + 0.75 * t, y0 + w, s))
+        else:
+            x0 = x - (w / 2.0 if centro else (w if fim else 0.0))
+            self.textos.append((x0, y - 0.25 * t, x0 + w, y + 0.75 * t, s))
 
     def retangulo(self, x, y, w, h, larg=0.6):
         self.c.setLineWidth(larg)
@@ -453,4 +465,29 @@ class Folha:
             if not (v["px"] - tol <= x <= v["px"] + v["fw"] + tol and
                     v["py"] - tol <= y <= v["py"] + v["fh"] + tol):
                 prob.append(f"ancora de cota de {nome} fora da vista: ({x:.1f},{y:.1f})")
+        return prob
+
+    def colisoes(self, folga=0.4):
+        """Textos que se sobrepoem, e textos que saem da moldura interna.
+
+        A auditoria por tinta do PDF pega vista em branco, mas nao pega texto em cima de
+        texto -- nem a linha de texto que comeca dentro da folha e transborda a borda
+        (o verificar() so' guarda o ponto inicial). Aqui os retangulos reais de cada
+        texto sao comparados: e' o substituto de olho para layout.
+
+        folga: sobreposicao tolerada em mm (0.4 = encostar quase nao conta).
+        """
+        prob = []
+        x0f, y0f, x1f, y1f = self.i
+        for (x0, y0, x1, y1, s) in self.textos:
+            if x0 < x0f - 0.01 or x1 > x1f + 0.01 or y0 < y0f - 0.01 or y1 > y1f + 0.01:
+                prob.append("texto fora da moldura: %r em (%.1f,%.1f)-(%.1f,%.1f)"
+                            % (s[:32], x0, y0, x1, y1))
+        t = self.textos
+        for i in range(len(t)):
+            for j in range(i + 1, len(t)):
+                a, b = t[i], t[j]
+                if (a[0] < b[2] - folga and b[0] < a[2] - folga
+                        and a[1] < b[3] - folga and b[1] < a[3] - folga):
+                    prob.append("texto sobre texto: %r x %r" % (a[4][:28], b[4][:28]))
         return prob

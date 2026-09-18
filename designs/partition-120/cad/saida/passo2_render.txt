@@ -1,0 +1,4 @@
+PNG /home/oangelo/git/Habitat/designs/partition-120/cad/saida/passo2_render_iso.png  23268 bytes  1920x1200
+PNG /home/oangelo/git/Habitat/designs/partition-120/cad/saida/passo2_render_persp.png  23821 bytes  1920x1200
+PNG /home/oangelo/git/Habitat/designs/partition-120/cad/saida/passo2_render_close.png  20892 bytes  1600x1200
+render ok: 3 PNGs em /home/oangelo/git/Habitat/designs/partition-120/cad/saida

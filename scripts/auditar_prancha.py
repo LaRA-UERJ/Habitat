@@ -118,6 +118,30 @@ def main():
             if fv > 0.02:
                 falhas.append(f"{nome}: deveria estar vazia ({fv:.3f})")
 
+    textos = d.get("textos_na_folha") or []
+    if textos:
+        print("\n=== textos (sobreposicao e moldura) ===")
+        fora = [t for t in textos
+                if t[0] < MOLDURA_INTERNA - 0.01 or t[2] > A3[0] - MOLDURA_INTERNA + 0.01
+                or t[1] < MOLDURA_INTERNA - 0.01 or t[3] > A3[1] - MOLDURA_INTERNA + 0.01]
+        col = []
+        for i in range(len(textos)):
+            for j in range(i + 1, len(textos)):
+                a, b = textos[i], textos[j]
+                if (a[0] < b[2] - 0.4 and b[0] < a[2] - 0.4
+                        and a[1] < b[3] - 0.4 and b[1] < a[3] - 0.4):
+                    col.append((a[4], b[4]))
+        print("  textos conferidos: %d | fora da moldura: %d | sobrepostos: %d"
+              % (len(textos), len(fora), len(col)))
+        for t in fora[:8]:
+            print("    FORA:  %r em (%.1f,%.1f)-(%.1f,%.1f)" % (t[4][:34], t[0], t[1], t[2], t[3]))
+        for a, b in col[:8]:
+            print("    SOBRE: %r  x  %r" % (a[:30], b[:30]))
+        if fora:
+            falhas.append("%d textos fora da moldura interna" % len(fora))
+        if col:
+            falhas.append("%d textos sobrepostos" % len(col))
+
     print("\nRESULTADO:", "TUDO OK" if not falhas else "FALHAS:")
     for x in falhas:
         print("  -", x)
