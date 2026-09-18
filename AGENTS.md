@@ -61,6 +61,9 @@ Saída esperada de um passo de CAD, em `designs/<modulo>/cad/saida/`:
 - `<passo>_lista_corte.csv` — perfil, comprimento, quantidade
 - `<passo>_relatorio.json` — números medidos e resultado das verificações
 
+DXF e STEP são **regeneráveis rodando o script** e por isso não entram no git (`.gitignore`);
+o PDF, o CSV, o JSON e os renders ficam versionados. Ver `.gitignore`.
+
 ## Regras duras
 
 Cada uma destas custou tempo e um desenho errado na mão do usuário.
@@ -95,7 +98,7 @@ Atualize esta tabela quando fechar um passo.
 
 | Módulo | O que existe | Próximo passo |
 |---|---|---|
-| [partition-120](designs/partition-120/) (biombo) | CAD passo 1 (estrutura) e passo 1b (base decidida: 4 rodízios Ø75/102 mm nas folhas das pontas, chapa soldada 100×70×4). Pranchas A3, DXF, STEP, listas de corte, relatórios | Passo 2: painel estofado (compensado + espuma + tecido), fixação e massa; depois dobradiça |
+| [partition-120](designs/partition-120/) (biombo) | CAD passo 1 (estrutura) e passo 1b (base decidida: 4 rodízios Ø75/102 mm nas folhas das pontas, chapa soldada 100×70×4). Pranchas A3, listas de corte, relatórios e renders 3D | Passo 2: painel estofado (compensado + espuma + tecido), fixação e massa; depois dobradiça |
 | [soldering-bench](designs/soldering-bench/) | Brief + render | Tabela de parâmetros |
 | [workstation-120](designs/workstation-120/) | Brief + render | Tabela de parâmetros |
 | [focus-pod](designs/focus-pod/) | Brief + render | Tabela de parâmetros |
