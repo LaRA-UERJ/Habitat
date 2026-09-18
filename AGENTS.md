@@ -98,7 +98,7 @@ Atualize esta tabela quando fechar um passo.
 
 | Módulo | O que existe | Próximo passo |
 |---|---|---|
-| [partition-120](designs/partition-120/) (biombo) | CAD passo 1 (estrutura) e passo 1b (base decidida: 4 rodízios Ø75/102 mm nas folhas das pontas, chapa soldada 100×70×4). Pranchas A3, listas de corte, relatórios e renders 3D | Passo 2: painel estofado (compensado + espuma + tecido), fixação e massa; depois dobradiça |
+| [partition-120](designs/partition-120/) (biombo) | CAD passos 1 (estrutura), 1b (base: 4 rodízios Ø75/102 mm nas folhas das pontas, chapa soldada 100×70×4) e 2 (**aprovado**: placa de compensado decorada 834×1534×15, 12 cantoneiras 25×25×3 soldadas de face, parafuso de madeira Ø4×16; acabamento de espuma e tecido ficou opcional e não modelado). Pranchas A3, listas de corte e de compras, relatórios e renders 3D | Passo 3: dobradiça no encontro a 120° (os montantes vizinhos se sobrepõem 207,8 cm³) e furação da chapa confirmada contra o rodízio comprado; antes disso, decidir o acabamento do painel |
 | [soldering-bench](designs/soldering-bench/) | Brief + render | Tabela de parâmetros |
 | [workstation-120](designs/workstation-120/) | Brief + render | Tabela de parâmetros |
 | [focus-pod](designs/focus-pod/) | Brief + render | Tabela de parâmetros |
