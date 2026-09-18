@@ -31,15 +31,24 @@ A free-standing folding screen (biombo) with three panels joined at 120° angles
 
 ---
 
-## Dimensions (TBD)
+## Dimensions
 
-| Dimension | Range | Notes |
-|---|---|---|
-| Panel width | 80–100 cm | Each of the 3 panels |
-| Total height | 150–180 cm | Above seated eye level (~120 cm), below ceiling (~280 cm). ~160 cm is typical for acoustic screens |
-| Panel thickness | 5–8 cm | Wood base (~12–15 mm) + foam (~30–50 mm) + fabric |
-| Frame tube | 25×25 or 30×30 mm | Metalon quadrado — see Steel Frame Specs below |
-| Caster diameter | 50–75 mm | With brake |
+Brief ranges, with what the CAD has settled so far. See [`cad/README.md`](cad/README.md)
+for the full parameter table and the open decisions.
+
+| Dimension | Brief range | Settled in CAD | Notes |
+|---|---|---|---|
+| Panel width | 80–100 cm | **900 mm** | Each of the 3 panels |
+| Total height | 150–180 cm | **1706 mm** (1600 frame + 102 caster + 4 base plate) | Com o rodízio comercial de 102 mm |
+| Panel thickness | 5–8 cm | open | Wood base (~12–15 mm) + foam (~30–50 mm) + fabric |
+| Frame tube | 25×25 or 30×30 mm | **30×30×1,5 mm** | Metalon quadrado — see Steel Frame Specs below |
+| Caster diameter | 50–75 mm | **75 mm**, with brake | **4 units**, 2 per panel, only on the outer panels, inset 100 mm inside the panel plane |
+| Base plate | — | **100 × 70 × 4 mm** welded under the bottom rail | 4 oblong slots 25 × 9 mm for the caster bolts |
+
+Derived from the CAD: passo 1 (estrutura) 1358 × 1561 mm de planta, 14,64 m de tubo,
+19,65 kg de aço. Passo 1b (base decidida): envoltória 1357,5 × 1560,9 × 1706 mm, 14,64 m de
+tubo, 19,65 kg de tubo + 0,88 kg de chapas, 4 rodízios, margem de tombamento de 179,9 mm
+(tomba a 11,62°; com 6 rodízios era 16,7°).
 
 ---
 
@@ -108,11 +117,11 @@ Options:
 
 ## Principles Being Evaluated
 
-- [120° instead of 90°](../docs/design-principles-catalog.md#120-instead-of-90) — Core geometry; avoids harsh corners and dead spaces
-- [Gradual privacy](../docs/design-principles-catalog.md#gradual-privacy-not-binary) — Medium privacy zone: blocks direct sightlines but preserves peripheral awareness
-- [Everything on casters](../docs/design-principles-catalog.md#everything-on-casters) — Mobile partitions reconfigure the lab in minutes
-- [Noise gradient](../docs/design-principles-catalog.md#noise-gradient) — Acoustic panels support the noise separation strategy between lab zones
-- [Task differentiation](../docs/concepts.md#1-robert-propst--the-office-a-facility-based-on-change-1968) — Partitions help define distinct activity zones within the same room
+- [120° instead of 90°](../../docs/design-principles-catalog.md#120-instead-of-90) — Core geometry; avoids harsh corners and dead spaces
+- [Gradual privacy](../../docs/design-principles-catalog.md#gradual-privacy-not-binary) — Medium privacy zone: blocks direct sightlines but preserves peripheral awareness
+- [Everything on casters](../../docs/design-principles-catalog.md#everything-on-casters) — Mobile partitions reconfigure the lab in minutes
+- [Noise gradient](../../docs/design-principles-catalog.md#noise-gradient) — Acoustic panels support the noise separation strategy between lab zones
+- [Task differentiation](../../docs/concepts.md#1-robert-propst--the-office-a-facility-based-on-change-1968) — Partitions help define distinct activity zones within the same room
 
 ---
 
@@ -120,8 +129,11 @@ Options:
 
 - **Tecido:** qual material? Veludo acústico, camurça, lona? Precisa ser lavável e resistente em lab com 30+ estudantes
 - **Dobradiças:** tipo piano contínua ou pino removível? Precisa de batente a 120° ou liberdade total?
-- **Base:** 2 ou 3 rodízios por painel? Com 3 painéis, o painel central pode ter 2 e os laterais 2 cada = 6 total
-- **Estabilidade / anti-capotamento:** o biombo é alto (~160 cm) e estreito (~60 cm de profundidade). Precisa de base mais larga que o painel? Pé em L? Lastro na base?
+- **Base:** resolvido — 4 rodízios, 2 por folha, só nas folhas das pontas, recuados 100 mm
+  dentro do plano da folha (o pé em L foi descartado: risco de tropeço no lab)
+- **Estabilidade / anti-capotamento:** resolvido no passo 1b — sem base alargada. Medido no
+  modelo: margem de tombamento de 179,9 mm (11,62°) com 4 rodízios; era 16,7° com 6. O número
+  final ainda cai quando o painel estofado (passo 2) entrar no CG
 - **Empilhável:** quando dobrado, pode ficar em pé encostado na parede? Precisa de suporte?
 - **Acústica real:** quanta absorção o painel estofado realmente proporciona? Precisa de_teste ou dados de NRC (Noise Reduction Coefficient)?
 - **Integração com bancadas:** o biombo pode servir como extensão da bancada de solda ou workstation 120°? Encaixa no sistema modular?
@@ -131,9 +143,34 @@ Options:
 
 ---
 
+## CAD
+
+Passo 1 (estrutura de metal) e passo 1b (base: rodízio comercial + pé em L), gerados por
+script headless. Ver [`cad/README.md`](cad/README.md) para regenerar e para as pendências.
+
+| Artefato | O que é |
+|---|---|
+| [`cad/saida/passo1_prancha.pdf`](cad/saida/passo1_prancha.pdf) | Prancha A3 cotada do passo 1 — estrutura |
+| [`cad/saida/passo1_biombo.step`](cad/saida/passo1_biombo.step) | Sólido do passo 1 |
+| [`cad/saida/passo1_lista_corte.csv`](cad/saida/passo1_lista_corte.csv) | Lista de corte do passo 1 |
+| [`cad/saida/passo1b_prancha.pdf`](cad/saida/passo1b_prancha.pdf) | **Prancha A3 do passo 1b** — frente perpendicular à folha central, lateral paralela às folhas das pontas, planta, isométrica e detalhe da base em 1:2 |
+| [`cad/saida/passo1b_prancha.dxf`](cad/saida/passo1b_prancha.dxf) | Geometria em mm para CAD |
+| [`cad/saida/passo1b_biombo.step`](cad/saida/passo1b_biombo.step) | Sólido do passo 1b |
+| [`cad/saida/passo1b_lista_corte.csv`](cad/saida/passo1b_lista_corte.csv) | Lista de corte: tubo, chapa e rodízio |
+
+O que já está fechado: metalon 30×30×1,5 mm, folha de 900 × 1600 mm, 120° internos entre
+folhas (giro de 60° por junta), rodízio moveleiro Ø75 com freio de altura 102 mm e carga
+70 kg, **4 rodízios** (2 por folha, só nas folhas das pontas, recuados 100 mm dentro do plano
+da folha), chapa soldada 100 × 70 × 4 mm com 4 rasgos oblongos sob cada rodízio, altura total
+1706 mm, 14,64 m de tubo e margem de tombamento de 179,9 mm (11,62°).
+
+O que ainda não existe: painel estofado (compensado + espuma + tecido), dobradiças, e a
+confirmação do passo entre os furos da chapa (medir o rodízio comprado antes de furar).
+Ver [`cad/README.md`](cad/README.md#pendências).
+
 ## Files
 
 | Path | Description |
 |---|---|
-| `cad/` | CAD files (.step, .FCStd) — to be added |
+| `cad/` | Script de geração + `saida/` com prancha, DXF, STEP e lista de corte |
 | `assets/reference-biombo.png` | Reference image of the partition concept |

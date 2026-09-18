@@ -1,0 +1,306 @@
+{
+ "cadeia_alturas_mm": {
+  "rodizio": 102.0,
+  "chapa": 4.0,
+  "base_quadro": 106.0,
+  "topo": 1706.0
+ },
+ "rodizio_ref": "dia 75 com freio, altura 102, placa 91.5x60, carga 70 kg/un",
+ "rodizios_por_folha": {
+  "folha1": 2,
+  "folha2": 0,
+  "folha3": 2
+ },
+ "recuo_rodizio_mm": 100.0,
+ "angulos_internos": [
+  120.0,
+  120.0
+ ],
+ "bbox_modelo_mm": [
+  0.0,
+  -35.0,
+  0.0,
+  1357.5,
+  1560.9,
+  1706.0
+ ],
+ "tubo_total_m": 14.64,
+ "massa_tubo_kg": 19.65,
+ "n_chapas": 4,
+ "massa_chapas_kg": 0.88,
+ "n_rodizios": 4,
+ "grafo_do_quadro": {
+  "folha1_mont_a": [
+   "folha1_trav_inf",
+   "folha1_trav_sup"
+  ],
+  "folha1_mont_b": [
+   "folha1_trav_inf",
+   "folha1_trav_sup",
+   "folha2_mont_a"
+  ],
+  "folha1_trav_inf": [
+   "folha1_mont_a",
+   "folha1_mont_b"
+  ],
+  "folha1_trav_sup": [
+   "folha1_mont_a",
+   "folha1_mont_b"
+  ],
+  "folha2_mont_a": [
+   "folha1_mont_b",
+   "folha2_trav_inf",
+   "folha2_trav_sup"
+  ],
+  "folha2_mont_b": [
+   "folha2_trav_inf",
+   "folha2_trav_sup",
+   "folha3_mont_a"
+  ],
+  "folha2_trav_inf": [
+   "folha2_mont_a",
+   "folha2_mont_b"
+  ],
+  "folha2_trav_sup": [
+   "folha2_mont_a",
+   "folha2_mont_b"
+  ],
+  "folha3_mont_a": [
+   "folha2_mont_b",
+   "folha3_trav_inf",
+   "folha3_trav_sup"
+  ],
+  "folha3_mont_b": [
+   "folha3_trav_inf",
+   "folha3_trav_sup"
+  ],
+  "folha3_trav_inf": [
+   "folha3_mont_a",
+   "folha3_mont_b"
+  ],
+  "folha3_trav_sup": [
+   "folha3_mont_a",
+   "folha3_mont_b"
+  ]
+ },
+ "chapa_soldada_em": {
+  "folha1_a_chapa": {
+   "folha1_trav_inf": 0.0,
+   "folha1_mont_a": 20.0,
+   "folha1_mont_b": 720.0
+  },
+  "folha1_b_chapa": {
+   "folha1_trav_inf": 0.0,
+   "folha1_mont_b": 20.0,
+   "folha2_mont_a": 42.5
+  },
+  "folha3_a_chapa": {
+   "folha3_trav_inf": 0.0,
+   "folha3_mont_a": 14.51,
+   "folha2_mont_b": 37.01
+  },
+  "folha3_b_chapa": {
+   "folha3_trav_inf": 0.0,
+   "folha3_mont_b": 14.51,
+   "folha3_mont_a": 714.51
+  }
+ },
+ "rodizio_toca_chao_mm": 0.0,
+ "folga_min_base_mm": 600.0,
+ "par_mais_apertado": "folha1_a_chapa x folha1_b_chapa",
+ "interferencia_max_base_mm3": 0.0,
+ "par_com_interferencia": null,
+ "folga_min_rodas_mm": 625.0,
+ "massa_fabricada_kg": 19.89,
+ "cg_fabricado_mm": [
+  889.7,
+  515.3,
+  875.1
+ ],
+ "poligono_apoio": [
+  [
+   100.0,
+   0.0
+  ],
+  [
+   800.0,
+   0.0
+  ],
+  [
+   1300.0,
+   866.0
+  ],
+  [
+   950.0,
+   1472.2
+  ]
+ ],
+ "cg_dentro_do_poligono": true,
+ "margem_tombamento_mm": 179.9,
+ "tombamento_graus": 11.62,
+ "tombamento_passo1_graus": 16.7,
+ "varredura_recuo": [
+  {
+   "recuo": 80.0,
+   "folga_base_mm": 640.0,
+   "par": "f0_a_chapa x f0_b_chapa",
+   "folga_ao_montante_mm": 0.0,
+   "margem_mm": 197.2,
+   "tombamento_graus": 12.7,
+   "cg_dentro": true
+  },
+  {
+   "recuo": 90.0,
+   "folga_base_mm": 620.0,
+   "par": "f0_a_chapa x f0_b_chapa",
+   "folga_ao_montante_mm": 4.5,
+   "margem_mm": 188.6,
+   "tombamento_graus": 12.16,
+   "cg_dentro": true
+  },
+  {
+   "recuo": 100.0,
+   "folga_base_mm": 600.0,
+   "par": "f0_a_chapa x f0_b_chapa",
+   "folga_ao_montante_mm": 14.5,
+   "margem_mm": 179.9,
+   "tombamento_graus": 11.62,
+   "cg_dentro": true
+  },
+  {
+   "recuo": 110.0,
+   "folga_base_mm": 580.0,
+   "par": "f0_a_chapa x f0_b_chapa",
+   "folga_ao_montante_mm": 24.5,
+   "margem_mm": 171.3,
+   "tombamento_graus": 11.07,
+   "cg_dentro": true
+  },
+  {
+   "recuo": 120.0,
+   "folga_base_mm": 560.0,
+   "par": "f0_a_chapa x f0_b_chapa",
+   "folga_ao_montante_mm": 34.5,
+   "margem_mm": 162.6,
+   "tombamento_graus": 10.53,
+   "cg_dentro": true
+  }
+ ],
+ "vista_Frente": {
+  "visiveis": 137,
+  "ocultas": 346,
+  "ext_mm": [
+   1826.0,
+   1706.0
+  ]
+ },
+ "vista_Lateral": {
+  "visiveis": 91,
+  "ocultas": 228,
+  "ext_mm": [
+   1357.5,
+   1706.0
+  ]
+ },
+ "vista_Planta": {
+  "visiveis": 164,
+  "ocultas": 164,
+  "ext_mm": [
+   1826.0,
+   807.4
+  ]
+ },
+ "vistas_direcoes": {
+  "Frente": {
+   "Direction": [
+    -0.866,
+    0.5,
+    0.0
+   ],
+   "XDirection": [
+    -0.5,
+    -0.866,
+    0.0
+   ],
+   "nota": "perpendicular a folha central (placa do meio), lado concavo"
+  },
+  "Lateral": {
+   "Direction": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "XDirection": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "nota": "paralela as folhas das pontas"
+  },
+  "Planta": {
+   "Direction": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "XDirection": [
+    -0.5,
+    -0.866,
+    0.0
+   ],
+   "nota": "de cima, com a mesma direita da frente (1o diedro)"
+  }
+ },
+ "vista_Iso": {
+  "visiveis": 221,
+  "ext_mm": [
+   1770.1,
+   2000.8
+  ]
+ },
+ "vista_Detalhe": {
+  "visiveis": 34,
+  "ext_mm": [
+   150.0,
+   70.0
+  ]
+ },
+ "caixas_na_folha": {
+  "Planta": [
+   38.0,
+   48.0,
+   129.3,
+   88.4
+  ],
+  "Frente": [
+   38.0,
+   172.0,
+   129.3,
+   257.3
+  ],
+  "Lateral": [
+   165.0,
+   172.0,
+   232.9,
+   257.3
+  ],
+  "Iso": [
+   292.0,
+   172.0,
+   362.8,
+   252.0
+  ],
+  "Detalhe": [
+   165.0,
+   48.0,
+   240.0,
+   83.0
+  ]
+ },
+ "area_util_ocupada_pct": 23.5,
+ "prancha_pdf_bytes": 22668,
+ "dxf_bytes": 347659,
+ "step_bytes": 280052,
+ "problemas": [],
+ "verificacao_ok": true
+}

@@ -1,0 +1,5 @@
+peca;perfil;comprimento_mm;qtd;observacao
+montante;30x30x1,5;1600;6;ponta 90 graus
+travessa;30x30x1,5;840;6;ponta 90 graus
+chapa_base;chapa aco;100.0;4;"100x70x4 mm; 4 rasgos oblongos 25x9 passo 70x40 (conferir com o rodizio comprado); soldada sob a travessa inferior"
+rodizio;roda 75 mm c/ freio, altura 102;-;4;parafusado na chapa soldada sob a travessa inferior
