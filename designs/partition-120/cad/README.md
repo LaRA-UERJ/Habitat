@@ -9,9 +9,15 @@ antes de mexer.
 cd <raiz do repo>
 freecadcmd designs/partition-120/cad/biombo_passo1.py      # passo 1: estrutura
 freecadcmd designs/partition-120/cad/biombo_passo1b.py     # passo 1b: base decidida
+
+# render 3D em PNG (FreeCAD GUI num X virtual: nao abre janela na sua tela)
+RENDER_FCSTD=$PWD/designs/partition-120/cad/saida/passo1b_biombo.FCStd \
+RENDER_NOME=passo1b_render \
+  xvfb-run -a freecad $PWD/scripts/render_3d.py
 ```
 
-Cada um leva ~15 s. Escrevem em `saida/`.
+O passo 1 leva ~15 s, o 1b ~30 s (inclui a varredura de recuo) e o render ~5 s. Escrevem
+em `saida/`.
 
 ## Arquivos
 
@@ -25,6 +31,10 @@ Cada um leva ~15 s. Escrevem em `saida/`.
 | `saida/passo1b_biombo.step` | Sólido do passo 1b |
 | `saida/passo1b_lista_corte.csv` | Perfil, comprimento, quantidade (tubo + chapas + rodízios) |
 | `saida/passo1b_relatorio.json` | Números medidos, varredura de recuo e resultado das verificações |
+| `saida/passo1b_render_iso.png` | Render 3D isométrico (1920×1200) |
+| `saida/passo1b_render_persp.png` | Render 3D em perspectiva (1920×1200) |
+| `saida/passo1b_render_close.png` | Render 3D do close na base (1600×1200) |
+| `saida/passo1b_render.txt` | Log do render (o `print` do script não sai no stdout nesse modo) |
 | `saida/passo1b_biombo.FCStd` | Modelo FreeCAD (regenerável; não versionado) |
 
 ## Parâmetros do passo 1 (estrutura) — aprovado

@@ -255,6 +255,31 @@ tinta, o carimbo precisa ter tinta, e as regiões escolhidas vazias devem dar ~0
 região que encosta na moldura conta a linha da moldura — exclua 2 mm da borda. Um mapa
 grosso de densidade (grade 30×20) revela coisa fora de lugar de relance.
 
+### Renderizar o modelo em 3D
+
+O `freecadcmd` não tem GUI nem `saveImage`. Para PNG do modelo, rode o FreeCAD **com GUI
+num X virtual** (`xvfb-run`: não abre janela na tela de quem está usando o PC):
+
+```bash
+RENDER_FCSTD=$PWD/designs/<modulo>/cad/saida/<passo>_biombo.FCStd \
+RENDER_NOME=<passo>_render \
+  xvfb-run -a freecad $PWD/scripts/render_3d.py
+```
+
+Sai `<passo>_render_iso.png` (axonométrica), `<passo>_render_persp.png` (perspectiva) e
+`<passo>_render_close.png` (aproximação na primeira peça de base). Pitfalls, todos
+verificados:
+
+- **`Gui.doCommand("Std_Quit")` não encerra o processo headless** — o `xvfb-run` fica
+  pendurado até o timeout. Termine com `os._exit(0)` depois de salvar.
+- **Oriente a câmera ANTES de enquadrar**: enquadrar e depois girar joga o objeto para fora
+  do quadro (um close meu ficou com 3/4 de chão).
+- Enquadre pela seleção (`Gui.SendMsgToActiveView("ViewSelection")`). `ViewFit` inclui o
+  chão e a peça encolhe na imagem.
+- No close, selecione só as peças do foco (incluir um montante de 1,6 m arruína o
+  enquadramento) e esconda o chão.
+- Os `print()` não aparecem no stdout nesse modo: o script grava um `.txt` de log.
+
 ### Rasterizar o modelo em ASCII
 
 O melhor substituto de olho para conferir arranjo e conexão. **Amostre 3×3 por célula**,
