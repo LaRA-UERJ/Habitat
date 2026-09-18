@@ -145,18 +145,21 @@ Options:
 
 ## CAD
 
-Passo 1 (estrutura de metal) e passo 1b (base: rodízio comercial + pé em L), gerados por
+Passo 1 (estrutura de metal) e passo 1b (base decidida: 4 rodízios comerciais), gerados por
 script headless. Ver [`cad/README.md`](cad/README.md) para regenerar e para as pendências.
 
 | Artefato | O que é |
 |---|---|
 | [`cad/saida/passo1_prancha.pdf`](cad/saida/passo1_prancha.pdf) | Prancha A3 cotada do passo 1 — estrutura |
-| [`cad/saida/passo1_biombo.step`](cad/saida/passo1_biombo.step) | Sólido do passo 1 |
+| `cad/saida/passo1_biombo.step` | Sólido do passo 1 — **não versionado** (regenere com o script) |
 | [`cad/saida/passo1_lista_corte.csv`](cad/saida/passo1_lista_corte.csv) | Lista de corte do passo 1 |
 | [`cad/saida/passo1b_prancha.pdf`](cad/saida/passo1b_prancha.pdf) | **Prancha A3 do passo 1b** — frente perpendicular à folha central, lateral paralela às folhas das pontas, planta, isométrica e detalhe da base em 1:2 |
-| [`cad/saida/passo1b_prancha.dxf`](cad/saida/passo1b_prancha.dxf) | Geometria em mm para CAD |
-| [`cad/saida/passo1b_biombo.step`](cad/saida/passo1b_biombo.step) | Sólido do passo 1b |
+| `cad/saida/passo1b_prancha.dxf` | Geometria em mm para CAD — **não versionado** (regenere com o script) |
+| `cad/saida/passo1b_biombo.step` | Sólido do passo 1b — **não versionado** (regenere com o script) |
 | [`cad/saida/passo1b_lista_corte.csv`](cad/saida/passo1b_lista_corte.csv) | Lista de corte: tubo, chapa e rodízio |
+| [`cad/saida/passo1b_render_iso.png`](cad/saida/passo1b_render_iso.png) | Render 3D isométrico |
+| [`cad/saida/passo1b_render_persp.png`](cad/saida/passo1b_render_persp.png) | Render 3D em perspectiva |
+| [`cad/saida/passo1b_render_close.png`](cad/saida/passo1b_render_close.png) | Render 3D do close na base |
 
 O que já está fechado: metalon 30×30×1,5 mm, folha de 900 × 1600 mm, 120° internos entre
 folhas (giro de 60° por junta), rodízio moveleiro Ø75 com freio de altura 102 mm e carga
@@ -172,5 +175,5 @@ Ver [`cad/README.md`](cad/README.md#pendências).
 
 | Path | Description |
 |---|---|
-| `cad/` | Script de geração + `saida/` com prancha, DXF, STEP e lista de corte |
+| `cad/` | Script de geração + `saida/` com prancha, lista de corte, relatório e renders (DXF/STEP saem do script, não versionados) |
 | `assets/reference-biombo.png` | Reference image of the partition concept |

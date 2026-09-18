@@ -8,6 +8,10 @@ __pycache__/
 *.3mf
 *.gcode
 *.nc
+# artefatos de CAD regeneraveis pelos scripts (ficam no disco, nao no repo):
+# .FCStd/.FCBak no topo; aqui os de troca com CAD, que saem de rodar o .py do modulo
+*.step
+*.dxf
 .DS_Store
 Thumbs.db
 *.bak

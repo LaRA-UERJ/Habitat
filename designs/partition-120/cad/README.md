@@ -25,10 +25,10 @@ em `saida/`.
 |---|---|
 | `biombo_passo1.py` | Passo 1: só a estrutura de metal. Aprovado; **não editar** |
 | `biombo_passo1b.py` | Passo 1b: base decidida (4 rodízios + chapas soldadas). Reaproveita a construção do passo 1 |
-| `saida/passo1_*` | Prancha A3, DXF, STEP, CSV e relatório do passo 1 |
+| `saida/passo1_*` | Prancha A3 (PDF), lista de corte (CSV) e relatório do passo 1. O DXF e o STEP são gerados mas **não versionados** |
 | `saida/passo1b_prancha.pdf` | **Prancha A3 do passo 1b** — 3 colunas × 2 linhas: planta, frente, lateral, isométrica 1:25 e detalhe da base 1:2 |
-| `saida/passo1b_prancha.dxf` | Mesma folha em mm para CAD. **Só a geometria** — sem carimbo e sem cota |
-| `saida/passo1b_biombo.step` | Sólido do passo 1b |
+| `saida/passo1b_prancha.dxf` | Mesma folha em mm para CAD — **não versionado**: regenere com o script |
+| `saida/passo1b_biombo.step` | Sólido do passo 1b — **não versionado**: regenere com o script |
 | `saida/passo1b_lista_corte.csv` | Perfil, comprimento, quantidade (tubo + chapas + rodízios) |
 | `saida/passo1b_relatorio.json` | Números medidos, varredura de recuo e resultado das verificações |
 | `saida/passo1b_render_iso.png` | Render 3D isométrico (1920×1200) |
