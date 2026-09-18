@@ -1,15 +1,18 @@
-"""Biombo 120 (Partition 120) - PASSO 2: painel estofado.
+"""Biombo 120 (Partition 120) - PASSO 2: placa de compensado decorado e sua fixacao.
 
 Sobre a base congelada do passo 1b (reproduzida aqui, sem editar aquele arquivo):
-  - compensado 15 mm dentro da abertura das 3 folhas (834 x 1534), 3 mm de folga;
-  - espuma 30 mm colada nas DUAS faces (2 x 774 x 1474 x 30), recuada 30 mm da borda;
-  - tecido 1 mm modelado por face (peca crua 874 x 1574, dobra de 20 mm grampeada);
-  - fixacao do compensado por 4 abas 3 x 25 x 25 mm soldadas na face interna dos
-    montantes, furo dia 4,2 e parafuso de madeira dia 4 x 16 (furo piloto dia 2,5).
-  - massa dos paineis, CG do conjunto e nova margem de tombamento.
+  - placa de compensado decorado 15 mm dentro da abertura das 3 folhas (834 x 1534),
+    3 mm de folga ao tubo em todo o contorno, centrada na profundidade do tubo;
+  - fixacao por 12 cantoneiras em L 25 x 25 x 3 mm (4 por folha) soldadas DE FACE na
+    face interna dos montantes, furo dia 4,2 a 15 mm da face e parafuso de madeira
+    dia 4 x 16 (furo piloto dia 2,5);
+  - massa da placa por folha, CG do conjunto e nova margem de tombamento.
+  - espuma e tecido NAO entram no modelo: o usuario decidiu em 2026-09-18 mostrar so'
+    a placa na prancha, e o acabamento (3 + 1 mm por face, se existir) so' desloca a
+    cantoneira e muda o parafuso para dia 4 x 20.
 
 Tudo verificado MEDINDO o modelo construido (distToShape / common().Volume), nunca por
-formula re-derivada. Ver docs/cad-workflow.md e a spec-passo2.md.
+formula re-derivada. Ver docs/cad-workflow.md e designs/partition-120/cad/README.md.
 
 Roda:  freecadcmd designs/partition-120/cad/biombo_passo2.py
 """

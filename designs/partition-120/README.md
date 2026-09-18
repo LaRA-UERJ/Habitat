@@ -40,7 +40,7 @@ for the full parameter table and the open decisions.
 |---|---|---|---|
 | Panel width | 80–100 cm | **900 mm** | Each of the 3 panels |
 | Total height | 150–180 cm | **1706 mm** (1600 frame + 102 caster + 4 base plate) | Com o rodízio comercial de 102 mm |
-| Panel thickness | 5–8 cm | open | Wood base (~12–15 mm) + foam (~30–50 mm) + fabric |
+| Panel thickness | 5–8 cm | **15 mm plywood** (foam + fabric open) | Cad passo 2: placa de compensado decorada; a espuma (30–50 mm) e o tecido seguem em aberto e não são desenhados |
 | Frame tube | 25×25 or 30×30 mm | **30×30×1,5 mm** | Metalon quadrado — see Steel Frame Specs below |
 | Caster diameter | 50–75 mm | **75 mm**, with brake | **4 units**, 2 per panel, only on the outer panels, inset 100 mm inside the panel plane |
 | Base plate | — | **100 × 70 × 4 mm** welded under the bottom rail | 4 oblong slots 25 × 9 mm for the caster bolts |
@@ -48,7 +48,10 @@ for the full parameter table and the open decisions.
 Derived from the CAD: passo 1 (estrutura) 1358 × 1561 mm de planta, 14,64 m de tubo,
 19,65 kg de aço. Passo 1b (base decidida): envoltória 1357,5 × 1560,9 × 1706 mm, 14,64 m de
 tubo, 19,65 kg de tubo + 0,88 kg de chapas, 4 rodízios, margem de tombamento de 179,9 mm
-(tomba a 11,62°; com 6 rodízios era 16,7°).
+(tomba a 11,62°; com 6 rodízios era 16,7°). Passo 2 (placa de compensado decorado, aprovado):
+placa de 834 × 1534 × 15 mm com 3,0 mm de folga ao tubo, 12 cantoneiras 25 × 25 × 3 soldadas de
+face e 12 parafusos de madeira Ø4 × 16, **55,32 kg** fabricados no total, painel de 11,51 kg por
+folha, 13,8 kg por rodízio (limite 70 kg) e margem de tombamento de **175,0 mm (11,07°)**.
 
 ---
 
@@ -56,10 +59,10 @@ tubo, 19,65 kg de tubo + 0,88 kg de chapas, 4 rodízios, margem de tombamento de
 
 | Layer | Material | Notes |
 |---|---|---|
-| Base | Compensado ou MDF 12–15 mm | Estrutura rígida do painel |
-| Foam | Espuma acústica 30–50 mm densidade média | Absorção sonora + conforto visual |
-| Fabric | Tecido acústico ou veludo | Lavável, resistente, cor escura (mancha menos) |
-| Attachment | Parafusos pelo verso ou encaixe no frame | Painel removível para trocar tecido |
+| Base | **Compensado decorado 15 mm**, 834 × 1534 mm | Decidido no CAD passo 2: 3 mm de folga ao tubo em todo o contorno |
+| Foam | Espuma acústica 30–50 mm densidade média | **Em aberto** — não modelada nem desenhada |
+| Fabric | Tecido acústico ou veludo | **Em aberto** — idem |
+| Attachment | **12 cantoneiras em L 25 × 25 × 3 mm, soldadas de face na face interna dos montantes** (perna A 22,5 × 25 mm) + 4 parafusos de madeira Ø4 × 16 por folha, com a perna B deitada sobre a placa e o furo piloto Ø2,5 | O parafuso só é acionável na direção da normal do painel — é isso que decide a geometria da cantoneira. Ordem: soldar as abas, parafusar a placa nua, e só então colar espuma e grampear tecido |
 
 ---
 
@@ -131,15 +134,17 @@ Options:
 - **Dobradiças:** tipo piano contínua ou pino removível? Precisa de batente a 120° ou liberdade total?
 - **Base:** resolvido — 4 rodízios, 2 por folha, só nas folhas das pontas, recuados 100 mm
   dentro do plano da folha (o pé em L foi descartado: risco de tropeço no lab)
-- **Estabilidade / anti-capotamento:** resolvido no passo 1b — sem base alargada. Medido no
-  modelo: margem de tombamento de 179,9 mm (11,62°) com 4 rodízios; era 16,7° com 6. O número
-  final ainda cai quando o painel estofado (passo 2) entrar no CG
+- **Estabilidade / anti-capotamento:** resolvido — sem base alargada. Medido no modelo do passo
+  2, com o painel dentro do CG: margem de tombamento de 175,0 mm (11,07°) com 4 rodízios; era
+  179,9 mm (11,62°) sem o painel e 16,7° com 6 rodízios
 - **Empilhável:** quando dobrado, pode ficar em pé encostado na parede? Precisa de suporte?
 - **Acústica real:** quanta absorção o painel estofado realmente proporciona? Precisa de_teste ou dados de NRC (Noise Reduction Coefficient)?
 - **Integração com bancadas:** o biombo pode servir como extensão da bancada de solda ou workstation 120°? Encaixa no sistema modular?
 - **Cor do tecido:** escura (menos suja) ou clara (mais leve visualmente)? Padronizar ou permitir variação?
 - **Painel de um lado só ou dos dois?** Estofado nos dois lados ou só no lado interno (lado do "fechamento")?
-- **Peso total estimado:** com metalon + madeira + espuma + tecido + rodízios, quantos kg? Afeta mobilidade prática
+- **Peso total:** resolvido em parte — 55,32 kg medidos no CAD do passo 2 (tubo 19,652 +
+  placa 34,543 + chapas 0,766 + cantoneiras 0,332 + parafusos 0,026), ainda sem o acabamento
+  (espuma + tecido). Carga por rodízio 13,8 kg, contra limite de 70 kg/un
 
 ---
 
@@ -160,16 +165,26 @@ script headless. Ver [`cad/README.md`](cad/README.md) para regenerar e para as p
 | [`cad/saida/passo1b_render_iso.png`](cad/saida/passo1b_render_iso.png) | Render 3D isométrico |
 | [`cad/saida/passo1b_render_persp.png`](cad/saida/passo1b_render_persp.png) | Render 3D em perspectiva |
 | [`cad/saida/passo1b_render_close.png`](cad/saida/passo1b_render_close.png) | Render 3D do close na base |
+| [`cad/saida/passo2_prancha.pdf`](cad/saida/passo2_prancha.pdf) | **Prancha A3 do passo 2** — 4 vistas em cima; embaixo a placa decorada 1:20, a lista de material e as notas de fixação e montagem |
+| `cad/saida/passo2_prancha.dxf` / `passo2_biombo.step` | Geometria em mm e sólido do passo 2 (67 peças) — **não versionados** |
+| [`cad/saida/passo2_lista_corte.csv`](cad/saida/passo2_lista_corte.csv) | Lista de corte: tubo, chapa, cantoneiras e placa |
+| [`cad/saida/passo2_lista_compras.csv`](cad/saida/passo2_lista_compras.csv) | Lista de compras: compensado, parafusos e o acabamento opcional |
+| [`cad/saida/passo2_render_iso.png`](cad/saida/passo2_render_iso.png) | Render 3D isométrico do conjunto com o painel |
+| [`cad/saida/passo2_render_persp.png`](cad/saida/passo2_render_persp.png) | Render 3D em perspectiva |
+| [`cad/saida/passo2_render_close.png`](cad/saida/passo2_render_close.png) | Render 3D do close em **uma fixação** (cantoneira + parafuso + placa) |
 
 O que já está fechado: metalon 30×30×1,5 mm, folha de 900 × 1600 mm, 120° internos entre
 folhas (giro de 60° por junta), rodízio moveleiro Ø75 com freio de altura 102 mm e carga
 70 kg, **4 rodízios** (2 por folha, só nas folhas das pontas, recuados 100 mm dentro do plano
 da folha), chapa soldada 100 × 70 × 4 mm com 4 rasgos oblongos sob cada rodízio, altura total
-1706 mm, 14,64 m de tubo e margem de tombamento de 179,9 mm (11,62°).
+1706 mm, 14,64 m de tubo e, no passo 2, **placa de compensado decorada 15 mm de 834 × 1534 mm**
+com 3 mm de folga ao tubo, fixada por **12 cantoneiras 25 × 25 × 3 mm soldadas de face** na face
+interna dos montantes com parafuso de madeira Ø4 × 16 (furo piloto Ø2,5). Massa fabricada
+55,32 kg e margem de tombamento 175,0 mm (11,07°).
 
-O que ainda não existe: painel estofado (compensado + espuma + tecido), dobradiças, e a
-confirmação do passo entre os furos da chapa (medir o rodízio comprado antes de furar).
-Ver [`cad/README.md`](cad/README.md#pendências).
+O que ainda não existe: o acabamento do painel (espuma e tecido — como e se existem), as
+dobradiças, e a confirmação do passo entre os furos da chapa (medir o rodízio comprado antes
+de furar). Ver [`cad/README.md`](cad/README.md#pendências).
 
 ## Files
 
